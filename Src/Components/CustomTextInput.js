@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     borderColor: Color.inputField,
     paddingVertical: wp(1.5),
     marginTop: wp(4),
+  
   },
   icon: {
     width: wp(5),

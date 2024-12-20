@@ -35,12 +35,12 @@ const DropdownWithIcons = () => {
           </View>
         )}
         renderLeftIcon={() => (
-          <View style={styles.Icon2Container}>
+         
             <Image
               source={selectedItem.icon} // Dynamically set the selected icon
               style={styles.card1icon}
             />
-          </View>
+        
         )}
       />
       <TextInput
@@ -59,16 +59,17 @@ export default DropdownWithIcons;
 const styles = StyleSheet.create({
   mainContainer: {
     flexDirection: 'row',
+    alignItems:'center',
     borderBottomWidth: 1,
     borderColor: Color.inputField,
     paddingVertical: wp(1.5),
-    paddingRight: wp(6),
+    marginTop: wp(4),
+    // paddingVertical: wp(1.5),
+    // marginRight: wp(6),
   },
 
   dropdown: {
-    height: wp(15),
-    // backgroundColor: 'yellow',
-    width: wp(17),
+    
   },
   text: {
     fontSize: FontSize.m,
@@ -80,8 +81,8 @@ const styles = StyleSheet.create({
     paddingRight: wp(4.5),
   },
   flagImage: {
-    width: 20,
-    height: 18,
+    width: wp(5),
+    height: wp(4.8),
     marginRight: 10,
   },
   renderMainContainer: {
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderBlockColor:Color.inputField,
-    borderBottomWidth:1
+    borderBottomWidth:1,
   },
   renderContainer: {
     flexDirection: 'row',
@@ -99,33 +100,28 @@ const styles = StyleSheet.create({
     paddingBottom: wp(2.8),
   },
   card1icon: {
-    height: hp(2.6),
+    borderWidth:0.5,
+    borderColor:Color.inputField,
+    height: wp(6),
     width: wp(8),
     resizeMode: 'contain',
-  },
-  Icon2Container: {
-    height: hp(4.8),
-    // backgroundColor: Color.adjustableLightBlue(0.1),
-    padding: 6,
-    paddingTop: 10,
-    borderRadius: 3,
-    marginLeft: 10,
-    marginRight: -7,
+  
+ 
   },
   textInput: {
-    // flex: 1,
+    flex: 1,
     fontSize: FontSize.xl,
     color: Color.inputText,
     fontFamily: FontFamily.robotoRegular,
-    padding: 0,
-    paddingTop: 8,
     paddingHorizontal: 12,
-    width: wp(75),
+    padding: 0,
+    // width: wp(75),
   },
   listContainer: {
     height: hp(27),
     width: wp(91),
-    marginLeft: 14,
+    // marginLeft: 14,
+    // margin:0,
     marginTop:8,
     borderColor:Color.inputField,
     borderRadius:20,

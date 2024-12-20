@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {Color, FontSize} from '../constants/style';
-import {wp} from '../utils/utils';
+import {hp, wp} from '../utils/utils';
 import ArrowRight from 'react-native-vector-icons/FontAwesome6';
 
 const CustomButton = ({
@@ -9,6 +9,7 @@ const CustomButton = ({
   onPress,
   style,
   iconName,
+  
   iconSize,
 }) => {
   return (
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: wp(3),
     marginTop: wp(6),
+    
   },
   btntext: {
     fontSize: FontSize.xl,

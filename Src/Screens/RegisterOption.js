@@ -11,7 +11,7 @@ import Company from 'react-native-vector-icons/Octicons';
 import Employee from 'react-native-vector-icons/FontAwesome'
 import { Color, FontFamily, FontSize } from '../constants/style';
 
-const RegisterOption = () => {
+const RegisterOption = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Image
@@ -26,7 +26,7 @@ const RegisterOption = () => {
         <View style={styles.line} />
 
         <View style={styles.card}>
-          <Pressable style={styles.card1} onPress={()=>console.log('first')} >
+          <Pressable style={styles.card1} onPress={()=>navigation.navigate('signup')} >
             <View style={styles.Icon2Container} >
                                        {/* <Company name = 'organization' size={30} style={styles.card1icon} /> */}
              <Image source={require('../assets/images/companiesRegister.png')} style={styles.card1icon}/>

@@ -1,4 +1,4 @@
-import { useNavigation } from '@react-navigation/native'
+
 import { useEffect, useLayoutEffect } from 'react'
 import { StyleSheet, Text, View, Image, StatusBar } from 'react-native'
 import Animated, { SlideInDown, SlideInLeft, SlideInRight, SlideInUp } from 'react-native-reanimated'

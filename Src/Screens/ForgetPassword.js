@@ -1,0 +1,33 @@
+import { Pressable, StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import Layout from '../Components/Layout'
+import CustomTextInput from '../Components/CustomTextInput';
+import CustomButton from '../Components/CustomButton';
+import { wp } from '../utils/utils';
+import { Color, FontFamily, FontSize } from '../constants/style';
+
+const ForgetPassword = ({navigation}) => {
+       const [inputValueEmail, setInputValueEmail] = useState('');
+  return (
+<Layout 
+text1={"Forget"}
+text2={"Password"}
+text3={"Enter your email here"}
+mainButtonText={"Submit"}
+>
+<CustomTextInput
+        placeholder="Email"
+        imageSource={require('../assets/icons/mailicon.png')}
+        value={inputValueEmail}
+        onChangeText={setInputValueEmail}
+      />
+       <CustomButton title="Submit" style={{width: wp(90)}} onPress={()=>navigation.navigate('newPassword')}/>
+     
+      
+</Layout>
+  )
+}
+
+export default ForgetPassword
+
+const styles = StyleSheet.create({})
