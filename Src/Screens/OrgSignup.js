@@ -23,6 +23,7 @@ const OrgSignup = ({navigation}) => {
       // bottomTextPressable={'Sign In'}
       // mainButtonText={"Sign Up"}
     >
+      
       <CustomTextInput
         placeholder="Name"
         imageSource={require('../assets/icons/name.png')}
@@ -53,13 +54,16 @@ const OrgSignup = ({navigation}) => {
         onChangeText={setInputValuePassword}
         secureTextEntry={true} // Enable password toggle
       />
+      
+     
 
       <CustomButton title="Sign Up" style={{width: wp(90)}} onPress={()=>{navigation.navigate('otpVerification')}} />
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row',alignSelf:'center'}}>
         <Text
           style={{
             color: Color.inputText,
-            paddingTop: wp(3),
+            paddingTop: wp(4),
+            
           }}>
           Already have an account?{' '}
         </Text>
@@ -67,7 +71,7 @@ const OrgSignup = ({navigation}) => {
           <Text
             style={{
               color: Color.darkBlue,
-              paddingTop: wp(3),
+              paddingTop: wp(4),
               fontSize: FontSize.l,
               fontFamily: FontFamily.robotoBold,
             }}>

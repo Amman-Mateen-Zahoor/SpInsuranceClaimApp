@@ -1,8 +1,9 @@
-import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {Pressable, StyleSheet, Text, TextInput, View} from 'react-native';
 import React, { useEffect } from 'react';
 import Layout from '../Components/Layout';
-import {Color, FontSize} from '../constants/style';
+import {Color, FontFamily, FontSize} from '../constants/style';
 import {wp} from '../utils/utils';
+import CustomButton from '../Components/CustomButton';
 
 const OtpVerification = () => {
     
@@ -16,11 +17,9 @@ const OtpVerification = () => {
       text1={'OTP'}
       text2={'Verification'}
       text3={'Verification code send via email'}
-      mainButtonText={"submit"}
-      bottomtext={"Did'nt get code?"}
-      bottomTextPressable={"Resend"}
+     
       >
-
+<View>
         <View style={{flexDirection:'row',height:wp(13),width:wp(80),alignItems:'center',justifyContent:'space-evenly',
         
         }}>
@@ -30,6 +29,35 @@ const OtpVerification = () => {
 
       <TextInput  style={styles.textInput}></TextInput>
       <TextInput   style={styles.textInput}></TextInput>
+      </View>
+      <View>
+      <CustomButton title="Submit" style={{width: wp(90)}} />
+      <View style={{flexDirection: 'row',paddingLeft:wp(25),paddingTop:wp(2)}}>
+        <Text
+          style={{
+            color: Color.inputText,
+            paddingTop: wp(3),
+            
+          }}>
+          Did'nt get code?{' '}
+        </Text>
+        <Pressable>
+          <Text
+            style={{
+              color: Color.darkBlue,
+              paddingTop: wp(3),
+              fontSize: FontSize.l,
+              fontFamily: FontFamily.robotoBold,
+            }}>
+            {/* Sign In */}
+            Resend
+          </Text>
+          <View></View>
+        </Pressable>
+        
+      </View>
+      </View>
+      
       </View>
     </Layout>
   );

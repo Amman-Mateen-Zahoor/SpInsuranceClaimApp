@@ -115,7 +115,7 @@ const CustomTextInput = ({
       <TextInput
         style={[styles.textInput, style]}
         placeholder={placeholder}
-        placeholderTextColor="#AAAAAA"
+        placeholderTextColor={Color.inputText}
         value={value}
         onChangeText={onChangeText}
         secureTextEntry={secureTextEntry && isPasswordVisible}
@@ -146,6 +146,7 @@ const styles = StyleSheet.create({
     borderColor: Color.inputField,
     paddingVertical: wp(1.5),
     marginTop: wp(4),
+    
   
   },
   icon: {
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: FontSize.xl,
-    color: Color.inputText,
+    color: Color.coal,
     fontFamily: FontFamily.robotoRegular,
     padding: 0,
   },

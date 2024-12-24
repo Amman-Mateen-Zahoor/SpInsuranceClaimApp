@@ -1,11 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import TestCodes from './TestCodes'
 
 const ParentTestCodes = () => {
   return (
-    <View>
-      <Text>ParentTestCodes</Text>
-    </View>
+    <TestCodes></TestCodes>
   )
 }
 

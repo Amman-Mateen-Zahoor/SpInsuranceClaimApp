@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 import Layout from '../Components/Layout';
 import CustomTextInput from '../Components/CustomTextInput';
 import {Color, FontFamily, FontSize} from '../constants/style';
-import {wp} from '../utils/utils';
+import {hp, wp} from '../utils/utils';
 import CustomButton from '../Components/CustomButton';
 
 const Login = ({navigation}) => {
@@ -35,19 +35,22 @@ const Login = ({navigation}) => {
         <Text style={{color: Color.inputText}}>or</Text>
         <View style={styles.line2}></View>
       </View>
-      <Text style={{color: Color.inputText, paddingTop: wp(5),paddingBottom:wp(6)}}>
+      
+      <Text style={{color: Color.inputText, paddingTop: wp(5),paddingBottom:wp(6),alignSelf:'center' }}>
         Log in with face ID
       </Text>
       <Pressable onPress={()=>{console.log('first')}}>
       <Image source={require('../assets/icons/face-id.png')}
       style={styles.image}
       ></Image></Pressable>
+      
         <CustomButton title="Sign Up" style={{width: wp(90)}} />
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row',alignSelf:"center"}}>
         <Text
           style={{
             color: Color.inputText,
-            paddingTop: wp(3),
+             paddingTop: wp(4)
+            
           }}>
           Did'nt have an account?{' '}
         </Text>
@@ -55,7 +58,7 @@ const Login = ({navigation}) => {
           <Text
             style={{
               color: Color.darkBlue,
-              paddingTop: wp(3),
+              paddingTop: wp(4),
               fontSize: FontSize.l,
               fontFamily: FontFamily.robotoBold,
             }}>
@@ -102,6 +105,7 @@ const styles = StyleSheet.create({
   image:{
     height:wp(20),
     width:wp(20),
-    resizeMode:'contain'
+    resizeMode:'contain',
+    alignSelf:'center'
   },
 });
