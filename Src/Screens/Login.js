@@ -54,7 +54,7 @@ const Login = ({navigation}) => {
           }}>
           Did'nt have an account?{' '}
         </Text>
-        <Pressable>
+        <Pressable onPress={()=>navigation.navigate('signup')}>
           <Text
             style={{
               color: Color.darkBlue,

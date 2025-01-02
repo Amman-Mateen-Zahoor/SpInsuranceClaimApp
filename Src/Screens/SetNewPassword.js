@@ -10,7 +10,7 @@ import { transformer } from '../../metro.config';
 const SetNewPassword = ({navigation}) => {
       const [inputValuePassword, setInputValuePassword] = useState('');
       const [inputValuePasswordNew, setInputValuePasswordNew] = useState('');
-      const [sendVisible,SetSendVisible]=useState()
+      const [sendVisible,SetSendVisible]=useState(false)
   return (
 <Layout 
 text1={"Set "}

@@ -26,7 +26,7 @@ const RegisterOption = ({navigation}) => {
         <View style={styles.line} />
 
         <View style={styles.card}>
-          <Pressable style={styles.card1} onPress={()=>navigation.navigate('signup')} >
+          <Pressable style={styles.card1} onPress={()=>navigation.navigate('login')} >
             <View style={styles.Icon2Container} >
                                        {/* <Company name = 'organization' size={30} style={styles.card1icon} /> */}
              <Image source={require('../assets/images/companiesRegister.png')} style={styles.card1icon}/>

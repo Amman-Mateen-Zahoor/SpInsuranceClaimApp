@@ -85,8 +85,8 @@
 
 // export default CustomTextInput;
 
-import React, { useState } from 'react';
-import { View, TextInput, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import React, { useRef, useState } from 'react';
+import { View, TextInput, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Color, FontFamily, FontSize } from '../constants/style';
 import { wp } from '../utils/utils';
@@ -101,8 +101,12 @@ const CustomTextInput = ({
   ...props
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
-
+  const inputElement =useRef()
+  const focusInput = () =>{
+    inputElement.current.focus();
+  } 
   return (
+    <Pressable onPress={focusInput}>
     <View style={styles.container}>
       {/* Icon (Image) */}
       {imageSource && (
@@ -113,6 +117,7 @@ const CustomTextInput = ({
       )}
       {/* TextInput */}
       <TextInput
+        ref={inputElement}
         style={[styles.textInput, style]}
         placeholder={placeholder}
         placeholderTextColor={Color.inputText}
@@ -135,6 +140,7 @@ const CustomTextInput = ({
         </TouchableOpacity>
       )}
     </View>
+    </Pressable>
   );
 };
 

@@ -7,29 +7,26 @@ import {
   Platform,
   StatusBar,
   Pressable,
+  TouchableWithoutFeedback,
+  Keyboard,
 } from 'react-native';
 import {Color, FontFamily, FontSize} from '../constants/style';
 import {hp, wp} from '../utils/utils';
 import CustomButton from './CustomButton';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const Layout = ({
-  children,
-  text1,
-  text2,
-  text3,
-  CustomStyle,
-}) => {
-  useLayoutEffect(() => {
-    if (Platform.OS === 'android') {
-      StatusBar.setTranslucent(true);
-      StatusBar.setBackgroundColor('transparent');
-    }
-    StatusBar.setHidden(false);
-    StatusBar.setBarStyle('light-content');
-  }, []);
+const Layout = ({children, text1, text2, text3, CustomStyle}) => {
+  // useLayoutEffect(() => {
+  //   if (Platform.OS === 'android') {
+  //     StatusBar.setTranslucent(true);
+  //     StatusBar.setBackgroundColor('transparent');
+  //   }
+  //   StatusBar.setHidden(false);
+  //   StatusBar.setBarStyle('light-content');
+  // }, []);
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       <View style={{height: wp(22)}}>
         <Text style={styles.textHello}>{text1}</Text>
@@ -41,16 +38,22 @@ const Layout = ({
         source={require('../assets/images/auth-background.png')}
         style={styles.backgroundImage}
       />
-      
-      
-      <KeyboardAwareScrollView style={{marginTop:wp(15),borderTopLeftRadius: wp(7),
-    backgroundColor: Color.white,
-    borderTopRightRadius: wp(7),}} contentContainerStyle={styles.content} >
+
+      <KeyboardAwareScrollView
+      extraScrollHeight={20}
+      enableOnAndroid
+      keyboardShouldPersistTaps="handled"
+        style={{
+          marginTop: wp(15),
+          borderTopLeftRadius: wp(7),
+          backgroundColor: Color.white,
+          borderTopRightRadius: wp(7),
+        }}
+        contentContainerStyle={styles.content}>
         {children}
-        </KeyboardAwareScrollView>
-      
-     
+      </KeyboardAwareScrollView>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     position: 'absolute',
     right: 0,
-    top:0
+    top: 0,
   },
   textHello: {
     fontFamily: FontFamily.robotoBold,
@@ -87,9 +90,8 @@ const styles = StyleSheet.create({
     paddingTop: wp(2),
   },
   content: {
-    flexGrow:1,
+    flexGrow: 1,
     padding: wp(5),
-    
   },
 });
 
