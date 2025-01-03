@@ -9,8 +9,9 @@ const Splash = ({navigation}) => {
     StatusBar.setHidden(true)
   },[])
 
-  // const navigation =  useNavigation()
-useEffect(()=>{
+ 
+
+  useEffect(()=>{
   setTimeout(()=>{
     navigation.replace('getStarted')
   },1200)

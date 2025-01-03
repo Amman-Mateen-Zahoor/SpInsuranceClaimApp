@@ -1,28 +1,28 @@
 import {Pressable, StyleSheet, Text, View, Image} from 'react-native';
 import React, {useState} from 'react';
-import Layout from '../Components/Layout';
-import CustomTextInput from '../Components/CustomTextInput';
-import {Color, FontFamily, FontSize} from '../constants/style';
-import {hp, wp} from '../utils/utils';
-import CustomButton from '../Components/CustomButton';
+import AuthLayout from '../../../layout/AuthLayout';
+import CustomTextInput from '../../../components/CustomTextInput';
+import {Color, FontFamily, FontSize} from '../../../constants/style';
+import {hp, wp} from '../../../utils/utils';
+import CustomButton from '../../../components/CustomButton';
 
 const Login = ({navigation}) => {
   const [inputValueEmail, setInputValueEmail] = useState('');
   const [inputValuePassword, setInputValuePassword] = useState('');
   return (
-    <Layout
+    <AuthLayout
       text1={'Hello!'}
       text2={'Log In'}
       text3={'Please login to continue'} >
       <CustomTextInput
         placeholder="Email"
-        imageSource={require('../assets/icons/mailicon.png')}
+        imageSource={require('../../../assets/icons/mailicon.png')}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
       />
       <CustomTextInput
         placeholder="Password"
-        imageSource={require('../assets/icons/password.png')}
+        imageSource={require('../../../assets/icons/password.png')}
         value={inputValuePassword}
         onChangeText={setInputValuePassword}
         secureTextEntry={true} // Enable password toggle
@@ -40,11 +40,11 @@ const Login = ({navigation}) => {
         Log in with face ID
       </Text>
       <Pressable onPress={()=>{console.log('first')}}>
-      <Image source={require('../assets/icons/face-id.png')}
+      <Image source={require('../../../assets/icons/face-id.png')}
       style={styles.image}
       ></Image></Pressable>
       
-        <CustomButton title="Sign Up" style={{width: wp(90)}} />
+        <CustomButton title="Log In" style={{width: wp(90)}} />
       <View style={{flexDirection: 'row',alignSelf:"center"}}>
         <Text
           style={{
@@ -69,7 +69,7 @@ const Login = ({navigation}) => {
         </Pressable>
         
       </View>
-    </Layout>
+    </AuthLayout>
   );
 };
 

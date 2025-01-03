@@ -2,7 +2,7 @@ import {StyleSheet, Text, View, Image, Modal} from 'react-native';
 import React, { useState } from 'react';
 import {Color, FontFamily, FontSize} from '../constants/style';
 import {wp} from '../utils/utils';
-import CustomButton from '../Components/CustomButton';
+import CustomButton from '../components/CustomButton';
 import { heightPercentageToDP, widthPercentageToDP } from 'react-native-responsive-screen';
 
 const UpdatedPasswordPopUp = ({navigation ,visible ,handleClose}) => {

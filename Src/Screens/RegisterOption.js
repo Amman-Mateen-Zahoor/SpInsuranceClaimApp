@@ -4,14 +4,25 @@ import {
   View,
   Image,
   Pressable,
+  StatusBar,
 } from 'react-native';
-import React from 'react';
+import React, {useLayoutEffect} from 'react';
 import {hp, wp} from '../utils/utils';
 import Company from 'react-native-vector-icons/Octicons';
-import Employee from 'react-native-vector-icons/FontAwesome'
-import { Color, FontFamily, FontSize } from '../constants/style';
+import Employee from 'react-native-vector-icons/FontAwesome';
+import {Color, FontFamily, FontSize} from '../constants/style';
 
 const RegisterOption = ({navigation}) => {
+  useLayoutEffect(() => {
+    if (Platform.OS == 'android') {
+      StatusBar.setTranslucent(true);
+      StatusBar.setBackgroundColor('transparent');
+    }
+
+    StatusBar.setHidden(false);
+    StatusBar.setBarStyle('light-content');
+  }, []);
+
   return (
     <View style={styles.container}>
       <Image
@@ -26,19 +37,26 @@ const RegisterOption = ({navigation}) => {
         <View style={styles.line} />
 
         <View style={styles.card}>
-          <Pressable style={styles.card1} onPress={()=>navigation.navigate('login')} >
-            <View style={styles.Icon2Container} >
-                                       {/* <Company name = 'organization' size={30} style={styles.card1icon} /> */}
-             <Image source={require('../assets/images/companiesRegister.png')} style={styles.card1icon}/>
-             </View>
-             <Text style={styles.cardLines}>Company</Text>
-            
-          </Pressable>
-          <Pressable style={styles.card1} onPress={()=>console.log('first')} >
+          <Pressable
+            style={styles.card1}
+            onPress={() => navigation.navigate('login')}>
             <View style={styles.Icon2Container}>
-            {/* <Employee name = 'user-o' size={30} style={styles.card1icon} /> */}
-            <Image source={require('../assets/images/User_Icon.png')} style={styles.card1icon}/>
-            </View >
+              {/* <Company name = 'organization' size={30} style={styles.card1icon} /> */}
+              <Image
+                source={require('../assets/images/companiesRegister.png')}
+                style={styles.card1icon}
+              />
+            </View>
+            <Text style={styles.cardLines}>Company</Text>
+          </Pressable>
+          <Pressable style={styles.card1} onPress={() => console.log('first')}>
+            <View style={styles.Icon2Container}>
+              {/* <Employee name = 'user-o' size={30} style={styles.card1icon} /> */}
+              <Image
+                source={require('../assets/images/User_Icon.png')}
+                style={styles.card1icon}
+              />
+            </View>
             <Text style={styles.cardLines}>Employee</Text>
           </Pressable>
         </View>
@@ -74,7 +92,6 @@ const styles = StyleSheet.create({
     fontSize: FontSize.xl,
     fontFamily: FontFamily.robotoBold,
     marginBottom: wp(3),
-
   },
   txt: {
     color: Color.lightBlue,
@@ -93,7 +110,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
     height: wp(1),
     // width: 110,
-    width:wp(30),
+    width: wp(30),
     borderRadius: wp(1),
   },
   card: {
@@ -103,7 +120,6 @@ const styles = StyleSheet.create({
     // width: 340,
 
     // justifyContent: 'space-evenly',
-    
   },
   card1: {
     // height: 120,
@@ -113,25 +129,20 @@ const styles = StyleSheet.create({
     backgroundColor: Color.white,
     borderRadius: wp(6),
     flexDirection: 'column',
-    marginHorizontal:wp(2),
-    alignItems:'center',
+    marginHorizontal: wp(2),
+    alignItems: 'center',
     justifyContent: 'center',
-    
-   
-   
   },
   card1icon: {
-    height:hp(2.6),
-    width:wp(8),
- 
-    resizeMode:'contain'
-  // backgroundColor: '#B3DFEF',
-  // //  color:"#002d72",
-  //  paddingLeft:6,
-  //  paddingTop:6,
-  //  borderRadius:3
- 
-  
+    height: hp(2.6),
+    width: wp(8),
+
+    resizeMode: 'contain',
+    // backgroundColor: '#B3DFEF',
+    // //  color:"#002d72",
+    //  paddingLeft:6,
+    //  paddingTop:6,
+    //  borderRadius:3
   },
   // Icon1Container:{
   //   // height:hp(5),
@@ -141,27 +152,23 @@ const styles = StyleSheet.create({
   //    padding:6,
   //    borderRadius:3,
   // },
-  
-  Icon2Container:{
-    height:hp(4.8),
+
+  Icon2Container: {
+    height: hp(4.8),
     backgroundColor: Color.adjustableLightBlue(0.1),
     // backgroundColor: 'green',
     //  color:"#002d72",
-     padding:6,
-     paddingTop:10,
-     borderRadius:3,
+    padding: 6,
+    paddingTop: 10,
+    borderRadius: 3,
   },
-  cardLines:{
-    color:Color.darkBlue,
+  cardLines: {
+    color: Color.darkBlue,
     // fontWeight:'bold',
-    fontSize:FontSize.m,
+    fontSize: FontSize.m,
     // paddingLeft:1,
     // marginBottom:10,
-    marginTop:wp(3),
-    fontFamily:FontFamily.robotoBold
-   
-    
+    marginTop: wp(3),
+    fontFamily: FontFamily.robotoBold,
   },
- 
-
 });

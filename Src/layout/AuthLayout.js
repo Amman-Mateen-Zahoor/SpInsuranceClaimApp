@@ -12,10 +12,10 @@ import {
 } from 'react-native';
 import {Color, FontFamily, FontSize} from '../constants/style';
 import {hp, wp} from '../utils/utils';
-import CustomButton from './CustomButton';
+import CustomButton from '../components/CustomButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const Layout = ({children, text1, text2, text3, CustomStyle}) => {
+const AuthLayout = ({children, text1, text2, text3, CustomStyle}) => {
   // useLayoutEffect(() => {
   //   if (Platform.OS === 'android') {
   //     StatusBar.setTranslucent(true);
@@ -95,4 +95,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Layout;
+export default AuthLayout;

@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import RootNavigation from './Src/navigation/RootNavigation'
+import RootNavigation from './src/navigation/RootNavigation'
+
+
 
 const App = () => {
   return (
-   <RootNavigation/>
-  )
+ <RootNavigation/>
+)
 }
 
 export default App

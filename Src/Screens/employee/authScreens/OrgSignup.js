@@ -1,11 +1,13 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import CustomTextInput from '../Components/CustomTextInput';
-import Layout from '../Components/Layout';
-import DropdownWithIcons from '../Components/DropdownWithIcons';
-import {Color, FontFamily, FontSize} from '../constants/style';
-import CustomButton from '../Components/CustomButton';
-import {wp} from '../utils/utils';
+import CustomTextInput from '../../../components/CustomTextInput';
+import AuthLayout from '../../../layout/AuthLayout';
+
+import {Color, FontFamily, FontSize} from '../../../constants/style';
+
+import CustomButton from '../../../components/CustomButton';
+import { wp } from '../../../utils/utils';
+import DropdownWithIcons from '../../../components/DropdownWithIcons';
 
 const OrgSignup = ({navigation}) => {
   const [inputValueName, setInputValueName] = useState('');
@@ -14,7 +16,7 @@ const OrgSignup = ({navigation}) => {
   const [inputValuePassword, setInputValuePassword] = useState('');
 
   return (
-    <Layout
+    <AuthLayout
       text1={'Hello!'}
       text2={'Create Your'}
       text3={'Account'}
@@ -26,7 +28,7 @@ const OrgSignup = ({navigation}) => {
       
       <CustomTextInput
         placeholder="Name"
-        imageSource={require('../assets/icons/name.png')}
+        imageSource={require('../../../assets/icons/name.png')}
         value={inputValueName}
         onChangeText={setInputValueName}
       />
@@ -35,21 +37,21 @@ const OrgSignup = ({navigation}) => {
 
       <CustomTextInput
         placeholder="Email"
-        imageSource={require('../assets/icons/mailicon.png')}
+        imageSource={require('../../../assets/icons/mailicon.png')}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
       />
 
       <CustomTextInput
         placeholder="CVR No."
-        imageSource={require('../assets/icons/cvr.png')}
+        imageSource={require('../../../assets/icons/cvr.png')}
         value={inputValueCvr}
         onChangeText={setInputValueCvr}
       />
 
       <CustomTextInput
         placeholder="Password"
-        imageSource={require('../assets/icons/password.png')}
+        imageSource={require('../../../assets/icons/password.png')}
         value={inputValuePassword}
         onChangeText={setInputValuePassword}
         secureTextEntry={true} // Enable password toggle
@@ -68,7 +70,7 @@ const OrgSignup = ({navigation}) => {
           }}>
           Already have an account?{' '}
         </Text>
-        <Pressable onPress={()=>navigation.navigate('login')}>
+        <Pressable onPress={()=>navigation.goBack()}>
           <Text
             style={{
               color: Color.darkBlue,
@@ -82,7 +84,7 @@ const OrgSignup = ({navigation}) => {
           <View></View>
         </Pressable>
       </View>
-    </Layout>
+    </AuthLayout>
   );
 };
 

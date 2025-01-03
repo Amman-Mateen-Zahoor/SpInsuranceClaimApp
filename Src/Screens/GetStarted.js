@@ -12,17 +12,10 @@ import React, {useLayoutEffect} from 'react';
 import {hp, wp} from '../utils/utils';
 import ArrowRight from 'react-native-vector-icons/Feather';
 import { Color, FontFamily, FontSize } from '../constants/style';
-import CustomButton from '../Components/CustomButton';
+import CustomButton from '../components/CustomButton';
  
 const GetStarted = ({navigation}) => {
-  useLayoutEffect(() => {
-    if (Platform.OS == 'android') {
-      StatusBar.setTranslucent(true);
-      StatusBar.setBackgroundColor('transparent');
-    }
-    StatusBar.setHidden(false);
-    StatusBar.setBarStyle('light-content');
-  }, []);
+ 
   return (
     <View style={styles.container}>
       <Image

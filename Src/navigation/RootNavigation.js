@@ -2,16 +2,16 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createNativeStackNavigator} from '@react-navigation/native-stack'
-import Splash from '../Screens/Splash';
-import GetStarted from '../Screens/GetStarted';
-import RegisterOption from '../Screens/RegisterOption';
-import ForgetPassword from '../Screens/ForgetPassword';
-import Login from '../Screens/Login';
-import OrgSignup from '../Screens/OrgSignup';
-import SetNewPassword from '../Screens/SetNewPassword';
-import OtpVerification from '../Screens/OtpVerification';
-import TestCodes from '../Screens/TestCodes';
+import Splash from '../screens/Splash';
+import GetStarted from '../screens/GetStarted';
+import RegisterOption from '../screens/RegisterOption';
+import ForgetPassword from '../screens/employee/authScreens/ForgetPassword';
+import Login from '../screens/employee/authScreens/Login';
+import SetNewPassword from '../screens/employee/authScreens/SetNewPassword';
+import TestCodes from '../screens/TestCodes';
 import UpdatedPasswordPopUp from '../modals/UpdatedPasswordPopUp';
+import OtpVerification from '../screens/employee/authScreens/OtpVerification';
+import OrgSignup from '../screens/employee/authScreens/OrgSignup';
 
 const Stack = createNativeStackNavigator();
 
