@@ -1,7 +1,7 @@
 import {Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
-import AuthLayout from '../../../layout/AuthLayout';
-import {Color, FontFamily, FontSize} from '../../../constants/style';
+import AuthLayout from '../../layout/AuthLayout';
+import {Color, FontFamily, FontSize} from '../../constants/style';
 
 
 import {
@@ -10,8 +10,9 @@ import {
   useBlurOnFulfill,
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
-import CustomButton from '../../../components/CustomButton';
-import { wp } from '../../../utils/utils';
+import CustomButton from '../../components/CustomButton';
+import { wp } from '../../utils/utils';
+
 
 const CELL_COUNT = 4;
 
@@ -54,7 +55,6 @@ const[disble,setDisable]=useState(true)
     const seconds = (timer % 60).toString().padStart(2,'0')
     return `${minutes}:${seconds}`  
   }
-
   return (
     <AuthLayout
       text1={'OTP'}
@@ -130,6 +130,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: Color.black,
     fontSize: FontSize.xxxl,
+
     borderRadius: wp(2),
   },
   codeFieldRoot: {justifyContent: 'center'},

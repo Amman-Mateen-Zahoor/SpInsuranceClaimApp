@@ -22,7 +22,6 @@ const RegisterOption = ({navigation}) => {
     StatusBar.setHidden(false);
     StatusBar.setBarStyle('light-content');
   }, []);
-
   return (
     <View style={styles.container}>
       <Image
@@ -39,7 +38,7 @@ const RegisterOption = ({navigation}) => {
         <View style={styles.card}>
           <Pressable
             style={styles.card1}
-            onPress={() => navigation.navigate('login')}>
+            onPress={() => navigation.navigate('loginCompany',{name:'company'})}>
             <View style={styles.Icon2Container}>
               {/* <Company name = 'organization' size={30} style={styles.card1icon} /> */}
               <Image
@@ -49,7 +48,7 @@ const RegisterOption = ({navigation}) => {
             </View>
             <Text style={styles.cardLines}>Company</Text>
           </Pressable>
-          <Pressable style={styles.card1} onPress={() => console.log('first')}>
+          <Pressable style={styles.card1}  onPress={() => navigation.navigate('loginEmployee',{name:'employee'})}>
             <View style={styles.Icon2Container}>
               {/* <Employee name = 'user-o' size={30} style={styles.card1icon} /> */}
               <Image

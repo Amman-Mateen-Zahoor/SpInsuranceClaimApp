@@ -1,13 +1,15 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import AuthLayout from '../../../layout/AuthLayout'
-import CustomTextInput from '../../../components/CustomTextInput';
-import CustomButton from '../../../components/CustomButton';
-import { wp } from '../../../utils/utils';
-import { Color, FontFamily, FontSize } from '../../../constants/style';
+import AuthLayout from '../../layout/AuthLayout'
+import CustomTextInput from '../../components/CustomTextInput';
+import CustomButton from '../../components/CustomButton';
+import { wp } from '../../utils/utils';
+import { Color, FontFamily, FontSize } from '../../constants/style';
+import { useNavigation } from '@react-navigation/native';
 
-const ForgetPassword = ({navigation}) => {
+const ForgetPassword = () => {
        const [inputValueEmail, setInputValueEmail] = useState('');
+       const navigation = useNavigation()
   return (
 <AuthLayout
 text1={"Forget"}
@@ -17,7 +19,7 @@ mainButtonText={"Submit"}
 >
 <CustomTextInput
         placeholder="Email"
-        imageSource={require('../../../assets/icons/mailicon.png')}
+        imageSource={require('../../assets/icons/mailicon.png')}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
       />

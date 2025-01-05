@@ -1,12 +1,12 @@
 import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
-import CustomTextInput from '../../../components/CustomTextInput';
-import AuthLayout from '../../../layout/AuthLayout';
 
 import {Color, FontFamily, FontSize} from '../../../constants/style';
 
-import CustomButton from '../../../components/CustomButton';
 import { wp } from '../../../utils/utils';
+import AuthLayout from '../../../layout/AuthLayout';
+import CustomButton from '../../../components/CustomButton';
+import CustomTextInput from '../../../components/CustomTextInput';
 import DropdownWithIcons from '../../../components/DropdownWithIcons';
 
 const OrgSignup = ({navigation}) => {
@@ -16,6 +16,7 @@ const OrgSignup = ({navigation}) => {
   const [inputValuePassword, setInputValuePassword] = useState('');
 
   return (
+    
     <AuthLayout
       text1={'Hello!'}
       text2={'Create Your'}

@@ -59,7 +59,7 @@ const GetStarted = ({navigation}) => {
             title="Get Started"
             iconName={"arrow-right-long"}
             onPress={()=>{
-              navigation.navigate('RegisterOption')
+              navigation.navigate('registration')
           }}
 
             />

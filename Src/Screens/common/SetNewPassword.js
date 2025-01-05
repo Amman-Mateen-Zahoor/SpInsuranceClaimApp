@@ -1,13 +1,13 @@
 import { Modal, StyleSheet, Text, View } from 'react-native'
 import React, { useState } from 'react'
-import AuthLayout from '../../../layout/AuthLayout'
-import CustomTextInput from '../../../components/CustomTextInput';
-import CustomButton from '../../../components/CustomButton';
-import { wp } from '../../../utils/utils';
-import UpdatedPasswordPopUp from '../../../modals/UpdatedPasswordPopUp';
+import AuthLayout from '../../layout/AuthLayout'
+import CustomTextInput from '../../components/CustomTextInput';
+import CustomButton from '../../components/CustomButton';
+import { wp } from '../../utils/utils';
+import UpdatedPasswordPopUp from '../../modals/UpdatedPasswordPopUp';
 
 
-const SetNewPassword = ({navigation}) => {
+const SetNewPassword = () => {
       const [inputValuePassword, setInputValuePassword] = useState('');
       const [inputValuePasswordNew, setInputValuePasswordNew] = useState('');
       const [sendVisible,SetSendVisible]=useState(false)
@@ -20,14 +20,14 @@ mainButtonText={"Submit"}
 >
 <CustomTextInput
         placeholder="Password"
-        imageSource={require('../../../assets/icons/password.png')}
+        imageSource={require('../../assets/icons/password.png')}
         value={inputValuePassword}
         onChangeText={setInputValuePassword}
         secureTextEntry={true} // Enable password toggle
       />
       <CustomTextInput
         placeholder="Confirm Password"
-        imageSource={require('../../../assets/icons/password.png')}
+        imageSource={require('../../assets/icons/password.png')}
         value={inputValuePasswordNew}
         onChangeText={setInputValuePasswordNew}
         secureTextEntry={true} // Enable password toggle

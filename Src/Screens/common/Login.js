@@ -1,14 +1,20 @@
 import {Pressable, StyleSheet, Text, View, Image} from 'react-native';
 import React, {useState} from 'react';
-import AuthLayout from '../../../layout/AuthLayout';
-import CustomTextInput from '../../../components/CustomTextInput';
-import {Color, FontFamily, FontSize} from '../../../constants/style';
-import {hp, wp} from '../../../utils/utils';
-import CustomButton from '../../../components/CustomButton';
+import AuthLayout from '../../layout/AuthLayout';
+import CustomTextInput from '../../components/CustomTextInput';
+import {Color, FontFamily, FontSize} from '../../constants/style';
+import {hp, wp} from '../../utils/utils';
+import CustomButton from '../../components/CustomButton';
+import { useNavigation } from '@react-navigation/native';
 
-const Login = ({navigation}) => {
+const Login = ({name}) => {
   const [inputValueEmail, setInputValueEmail] = useState('');
   const [inputValuePassword, setInputValuePassword] = useState('');
+  const navigation=useNavigation()
+  // const data =  route.params
+  console.log("first",name)
+
+     
   return (
     <AuthLayout
       text1={'Hello!'}
@@ -16,13 +22,13 @@ const Login = ({navigation}) => {
       text3={'Please login to continue'} >
       <CustomTextInput
         placeholder="Email"
-        imageSource={require('../../../assets/icons/mailicon.png')}
+        imageSource={require('../../assets/icons/mailicon.png')}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
       />
       <CustomTextInput
         placeholder="Password"
-        imageSource={require('../../../assets/icons/password.png')}
+        imageSource={require('../../assets/icons/password.png')}
         value={inputValuePassword}
         onChangeText={setInputValuePassword}
         secureTextEntry={true} // Enable password toggle
@@ -40,7 +46,7 @@ const Login = ({navigation}) => {
         Log in with face ID
       </Text>
       <Pressable onPress={()=>{console.log('first')}}>
-      <Image source={require('../../../assets/icons/face-id.png')}
+      <Image source={require('../../assets/icons/face-id.png')}
       style={styles.image}
       ></Image></Pressable>
       
@@ -54,7 +60,14 @@ const Login = ({navigation}) => {
           }}>
           Did'nt have an account?{' '}
         </Text>
-        <Pressable onPress={()=>navigation.navigate('signup')}>
+        <Pressable onPress={()=>{
+       
+          name?.name ==="employee" ?
+            navigation.navigate('orgSignupEmployee')
+            :navigation.navigate('orgSignupCompany')
+          }
+          
+  }>
           <Text
             style={{
               color: Color.darkBlue,
