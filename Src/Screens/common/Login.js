@@ -7,12 +7,11 @@ import {hp, wp} from '../../utils/utils';
 import CustomButton from '../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 
-const Login = ({name}) => {
+const Login = ({from}) => {
   const [inputValueEmail, setInputValueEmail] = useState('');
   const [inputValuePassword, setInputValuePassword] = useState('');
   const navigation=useNavigation()
-  // const data =  route.params
-  console.log("first",name)
+                             
 
      
   return (
@@ -33,7 +32,12 @@ const Login = ({name}) => {
         onChangeText={setInputValuePassword}
         secureTextEntry={true} // Enable password toggle
       />
-      <Pressable onPress={()=>navigation.navigate('forgetPassword')}>
+      <Pressable onPress={()=>{
+       
+       from ==="employee" ?
+         navigation.navigate('ForgetPasswordEmployee')
+         :navigation.navigate('ForgetPasswordCompany')
+       }}>
         <Text style={styles.text}>Forget Password?</Text>
       </Pressable>
       <View style={styles.lineContainer}>
@@ -62,9 +66,9 @@ const Login = ({name}) => {
         </Text>
         <Pressable onPress={()=>{
        
-          name?.name ==="employee" ?
-            navigation.navigate('orgSignupEmployee')
-            :navigation.navigate('orgSignupCompany')
+          from ==="employee" ?
+            navigation.navigate('OrgSignupEmployee')
+            :navigation.navigate('OrgSignupCompany')
           }
           
   }>

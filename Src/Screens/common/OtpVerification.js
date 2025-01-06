@@ -16,7 +16,7 @@ import { wp } from '../../utils/utils';
 
 const CELL_COUNT = 4;
 
-const OtpVerification = () => {
+const OtpVerification = ({from}) => {
   const [timer, setTimer] = useState(120);
   const [value, setValue] = useState('');
   const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});

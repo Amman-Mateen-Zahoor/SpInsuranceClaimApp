@@ -4,10 +4,9 @@ import AuthLayout from '../../layout/AuthLayout'
 import CustomTextInput from '../../components/CustomTextInput';
 import CustomButton from '../../components/CustomButton';
 import { wp } from '../../utils/utils';
-import { Color, FontFamily, FontSize } from '../../constants/style';
 import { useNavigation } from '@react-navigation/native';
 
-const ForgetPassword = () => {
+const ForgetPassword = ({from}) => {
        const [inputValueEmail, setInputValueEmail] = useState('');
        const navigation = useNavigation()
   return (
@@ -23,7 +22,12 @@ mainButtonText={"Submit"}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
       />
-       <CustomButton title="Submit" style={{width: wp(90)}} onPress={()=>navigation.navigate('newPassword')}/>
+       <CustomButton title="Submit" style={{width: wp(90)}} onPress={()=>{
+       
+       from ==="employee" ?
+         navigation.navigate('SetNewPasswordEmployee')
+         :navigation.navigate('SetNewPasswordCompany')
+       }}/>
      
       
 </AuthLayout>

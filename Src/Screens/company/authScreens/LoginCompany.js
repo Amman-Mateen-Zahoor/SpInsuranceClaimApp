@@ -115,10 +115,10 @@ import React from 'react'
 import Login from '../../common/Login'
 
 const LoginCompany = ({route}) => {
- const data = route.params
- console.log("name",data)
+//  const data = route.params
+//  console.log("name",data)
   return (
- <Login name={data} />
+ <Login  />
   )
 }
 

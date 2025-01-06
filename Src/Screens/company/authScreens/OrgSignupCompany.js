@@ -60,7 +60,7 @@ const OrgSignup = ({navigation}) => {
         title="Sign Up"
         style={{width: wp(90)}}
         onPress={() => {
-          navigation.navigate('otpVerification');
+          navigation.navigate('OtpVerificationCompany');
         }}
       />
       <View style={{flexDirection: 'row', alignSelf: 'center'}}>

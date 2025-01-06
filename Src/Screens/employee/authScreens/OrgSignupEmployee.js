@@ -8,12 +8,14 @@ import AuthLayout from '../../../layout/AuthLayout';
 import CustomButton from '../../../components/CustomButton';
 import CustomTextInput from '../../../components/CustomTextInput';
 import DropdownWithIcons from '../../../components/DropdownWithIcons';
+import { useNavigation } from '@react-navigation/native';
 
-const OrgSignup = ({navigation}) => {
+const OrgSignup = () => {
   const [inputValueName, setInputValueName] = useState('');
   const [inputValueEmail, setInputValueEmail] = useState('');
   const [inputValueCvr, setInputValueCvr] = useState('');
   const [inputValuePassword, setInputValuePassword] = useState('');
+const navigation = useNavigation()
 
   return (
     
@@ -61,7 +63,7 @@ const OrgSignup = ({navigation}) => {
       
   
 
-      <CustomButton title="Sign Up" style={{width: wp(90)}} onPress={()=>{navigation.navigate('otpVerification')}} />
+      <CustomButton title="Sign Up" style={{width: wp(90)}} onPress={()=>{navigation.navigate('OtpVerificationEmployee0')}} />
       <View style={{flexDirection: 'row',alignSelf:'center'}}>
         <Text
           style={{

@@ -114,11 +114,11 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Login from '../../common/Login'
 
-const LoginEmployee = ({route}) => {
-  const data = route.params
-  console.log("name",data)
+const LoginEmployee = () => {
+  // const data = route.params
+  // console.log("name",data)
   return (
-<Login name={data}/>
+<Login from={'employee'}  />
   )
 }
 

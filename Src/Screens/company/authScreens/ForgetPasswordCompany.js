@@ -37,7 +37,7 @@ import ForgetPassword from '../../common/ForgetPassword'
 
 const ForgetPasswordCompany = () => {
   return (
-   <ForgetPassword/>
+   <ForgetPassword  from={"company"}/>
   )
 }
 

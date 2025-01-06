@@ -38,7 +38,7 @@ const RegisterOption = ({navigation}) => {
         <View style={styles.card}>
           <Pressable
             style={styles.card1}
-            onPress={() => navigation.navigate('loginCompany',{name:'company'})}>
+            onPress={() => navigation.navigate('CompanyAuth')}>
             <View style={styles.Icon2Container}>
               {/* <Company name = 'organization' size={30} style={styles.card1icon} /> */}
               <Image
@@ -48,7 +48,7 @@ const RegisterOption = ({navigation}) => {
             </View>
             <Text style={styles.cardLines}>Company</Text>
           </Pressable>
-          <Pressable style={styles.card1}  onPress={() => navigation.navigate('loginEmployee',{name:'employee'})}>
+          <Pressable style={styles.card1}  onPress={() => navigation.navigate('EmployeeAuth')}>
             <View style={styles.Icon2Container}>
               {/* <Employee name = 'user-o' size={30} style={styles.card1icon} /> */}
               <Image

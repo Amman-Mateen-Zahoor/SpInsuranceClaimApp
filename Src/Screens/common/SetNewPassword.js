@@ -7,7 +7,7 @@ import { wp } from '../../utils/utils';
 import UpdatedPasswordPopUp from '../../modals/UpdatedPasswordPopUp';
 
 
-const SetNewPassword = () => {
+const SetNewPassword = ({from}) => {
       const [inputValuePassword, setInputValuePassword] = useState('');
       const [inputValuePasswordNew, setInputValuePasswordNew] = useState('');
       const [sendVisible,SetSendVisible]=useState(false)
