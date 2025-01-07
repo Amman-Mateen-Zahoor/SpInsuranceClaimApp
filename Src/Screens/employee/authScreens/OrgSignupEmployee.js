@@ -63,7 +63,7 @@ const navigation = useNavigation()
       
   
 
-      <CustomButton title="Sign Up" style={{width: wp(90)}} onPress={()=>{navigation.navigate('OtpVerificationEmployee0')}} />
+      <CustomButton title="Sign Up" style={{width: wp(90)}} onPress={()=>{navigation.navigate('OtpVerificationEmployee')}} />
       <View style={{flexDirection: 'row',alignSelf:'center'}}>
         <Text
           style={{

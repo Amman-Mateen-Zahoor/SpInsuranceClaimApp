@@ -1,6 +1,0 @@
-// create a new `Date` object
-var today = new Date();
-
-// get the date and time
-var now = today.toLocaleString();
-console.log(now);

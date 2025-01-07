@@ -54,7 +54,12 @@ const Login = ({from}) => {
       style={styles.image}
       ></Image></Pressable>
       
-        <CustomButton title="Log In" style={{width: wp(90)}} />
+        <CustomButton title="Log In" onPress={()=>{
+       
+       from ==="employee" ?
+         navigation.navigate('EmployeeStack')
+         :navigation.navigate('ForgetPasswordCompany')
+       }} style={{width: wp(90)}} />
       <View style={{flexDirection: 'row',alignSelf:"center"}}>
         <Text
           style={{

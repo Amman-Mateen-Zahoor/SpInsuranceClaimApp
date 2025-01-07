@@ -14,6 +14,7 @@ import {Color, FontFamily, FontSize} from '../constants/style';
 import {hp, wp} from '../utils/utils';
 import CustomButton from '../components/CustomButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 const AuthLayout = ({children, text1, text2, text3, CustomStyle}) => {
   // useLayoutEffect(() => {
@@ -24,16 +25,17 @@ const AuthLayout = ({children, text1, text2, text3, CustomStyle}) => {
   //   StatusBar.setHidden(false);
   //   StatusBar.setBarStyle('light-content');
   // }, []);
-
+  // const {top}=useSafeAreaInsets()
+  let top = 10
   return (
+    
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <View style={styles.container}>
-      <View style={{height: wp(22)}}>
-        <Text style={styles.textHello}>{text1}</Text>
+    <View style={[styles.container ]}>
+        <Text style={[styles.textHello ]}>{text1}</Text>
         <Text style={styles.text2}>{text2}</Text>
         {/* Apply CustomStyle correctly here */}
         <Text style={[styles.text3, CustomStyle]}>{text3}</Text>
-      </View>
+   
       <Image
         source={require('../assets/images/auth-background.png')}
         style={styles.backgroundImage}
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.darkBlue,
     flex: 1,
     justifyContent: 'flex-start',
-    paddingTop: wp(20),
+    // paddingTop: wp(20),
   },
   backgroundImage: {
     position: 'absolute',
@@ -74,6 +76,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.xxxl,
     color: Color.white,
     paddingLeft: wp(6),
+    marginTop:wp(17)
   },
   text2: {
     fontFamily: FontFamily.robotoBold,
