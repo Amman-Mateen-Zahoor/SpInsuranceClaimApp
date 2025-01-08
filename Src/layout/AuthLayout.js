@@ -26,7 +26,7 @@ const AuthLayout = ({children, text1, text2, text3, CustomStyle}) => {
   //   StatusBar.setBarStyle('light-content');
   // }, []);
   // const {top}=useSafeAreaInsets()
-  let top = 10
+ 
   return (
     
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     position: 'absolute',
     right: 0,
-    top: 0,
+   
   },
   textHello: {
     fontFamily: FontFamily.robotoBold,
