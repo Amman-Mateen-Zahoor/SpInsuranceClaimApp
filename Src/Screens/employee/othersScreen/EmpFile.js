@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import CommonLayout from '../../../layout/CommonLayout'
 
 const EmpFile = () => {
   return (
-    <View>
-      <Text>EmpFile</Text>
-    </View>
+<CommonLayout
+heading={"Files"}
+></CommonLayout>
   )
 }
 

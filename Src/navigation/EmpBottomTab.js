@@ -64,18 +64,10 @@ const EmpBottomTab = () => {
           },
         }}
         name="Files"
-        component={EmpHome}
+        component={EmpFile}
       />
       <Tab.Screen
         options={{
-          //   tabBarLabel:'',
-          //     tabBarIcon:(tabProps)=>{
-          //     return(
-          //         <View style={styles.midIcon}>
-
-          //             </View>
-          //         )
-          // },
           tabBarButton: props => (
             <Pressable {...props}>
               <View style={[styles.midIcon, {bottom: wp(8) + bottom}]}>

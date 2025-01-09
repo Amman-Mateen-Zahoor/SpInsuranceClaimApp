@@ -27,7 +27,9 @@ function sayHello() {
   console.log("Hello!");
 }
 console.log(b); // ReferenceError
-let b = 10;
+let b ;
+console.log(b)
+
 function outer() {
   let counter = 0; // Variable in outer function
   return function inner() {
