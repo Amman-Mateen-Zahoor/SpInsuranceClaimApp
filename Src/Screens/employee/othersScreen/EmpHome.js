@@ -122,6 +122,57 @@ const EmpHome = () => {
       heading: 'Vehicle',
       description: 'Lorem Ipsum is simply dummy text of the printing.',
     },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    {
+      icon: require('../../../assets/icons/car.png'),
+      heading: 'Vehicle',
+      description: 'Lorem Ipsum is simply dummy text of the printing.',
+    },
+    
   ]);
   return (
     <CommonLayout home={true}>

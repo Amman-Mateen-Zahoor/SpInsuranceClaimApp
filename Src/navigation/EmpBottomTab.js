@@ -15,6 +15,7 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 import EmpFile from '../screens/employee/othersScreen/EmpFile';
+import Camera from '../screens/Camera';
 
 const Tab = createBottomTabNavigator();
 const EmpBottomTab = () => {
@@ -22,6 +23,7 @@ const EmpBottomTab = () => {
 
   return (
     <Tab.Navigator
+    backBehavior='history'
       screenOptions={{
         tabBarActiveTintColor: Color.darkBlue,
         tabBarStyle: {height: wp(17) + bottom},
@@ -68,6 +70,7 @@ const EmpBottomTab = () => {
       />
       <Tab.Screen
         options={{
+          
           tabBarButton: props => (
             <Pressable {...props}>
               <View style={[styles.midIcon, {bottom: wp(8) + bottom}]}>
@@ -78,9 +81,11 @@ const EmpBottomTab = () => {
               </View>
             </Pressable>
           ),
+          tabBarStyle:{display:'none'}
+         
         }}
         name="Homemid"
-        component={EmpFile}
+        component={Camera}
       />
       <Tab.Screen
         options={{
@@ -144,7 +149,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: wp(8),
-    borderWidth: wp(1.5),
+    borderWidth: 4,
     borderColor: Color.white,
     elevation: 5,
   },

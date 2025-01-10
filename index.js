@@ -10,6 +10,7 @@ import Splash from './src/screens/Splash';
 import TestCodes from './src/screens/TestCodes';
 import EmpHome from './src/screens/employee/othersScreen/EmpHome';
 import CommonLayout from './src/layout/CommonLayout';
+import Camera from './src/screens/Camera';
 
 
 
