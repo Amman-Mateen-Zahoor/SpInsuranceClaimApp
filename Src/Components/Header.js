@@ -45,12 +45,15 @@ const styles = StyleSheet.create({
   bgImg: {
     position: 'absolute',
     right: 0,
+    top:0,
+
   },
   topContainer: {
     backgroundColor: Color.darkBlue,
     borderBottomLeftRadius: wp(7),
     borderBottomRightRadius: wp(7),
     paddingVertical: wp(2),
+    overflow:'hidden'
   },
   header: {
     flexDirection: 'row',

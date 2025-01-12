@@ -16,6 +16,7 @@ import {
 } from 'react-native-safe-area-context';
 import EmpFile from '../screens/employee/othersScreen/EmpFile';
 import Camera from '../screens/Camera';
+import EmpProfile from '../screens/employee/othersScreen/EmpProfile';
 
 const Tab = createBottomTabNavigator();
 const EmpBottomTab = () => {
@@ -103,7 +104,7 @@ const EmpBottomTab = () => {
           },
         }}
         name="Profile"
-        component={EmpHome}
+        component={EmpProfile}
       />
       <Tab.Screen
         options={{
