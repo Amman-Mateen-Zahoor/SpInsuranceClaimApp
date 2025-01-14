@@ -4,8 +4,9 @@ import {Color, FontFamily, FontSize} from '../constants/style';
 import {wp} from '../utils/utils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
-const UpdateProfileLayout = ({heading,headingBottom,children,style}) => {
+const UpdateProfileLayout = ({heading,headingBottom,children,style,contentContainerScrollStyle}) => {
     const navigation =useNavigation()
     //  useLayoutEffect(() => {
     //     if (Platform.OS == 'android') {
@@ -49,7 +50,16 @@ const UpdateProfileLayout = ({heading,headingBottom,children,style}) => {
           <Text style={styles.badge} />
         </TouchableOpacity>
       </View>
+      <KeyboardAwareScrollView
+            extraScrollHeight={10}
+            showsVerticalScrollIndicator={false}
+            enableOnAndroid
+            keyboardShouldPersistTaps="handled"
+              contentContainerStyle={[styles.container,contentContainerScrollStyle]}
+            
+             >
       {children}
+      </KeyboardAwareScrollView>
     </View>
     </TouchableWithoutFeedback>
   );
@@ -112,4 +122,13 @@ const styles = StyleSheet.create({
     top: -2,
     right: -1,
   },
+  container:{
+    flexGrow:1,
+    backgroundColor:Color.white,
+    paddingTop: wp(13),
+    paddingHorizontal: wp(5),
+    borderTopLeftRadius: wp(5),
+    borderTopRightRadius: wp(5),
+  },
+  
 });

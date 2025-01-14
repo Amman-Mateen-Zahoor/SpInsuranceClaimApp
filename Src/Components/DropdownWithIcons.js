@@ -46,7 +46,8 @@ const DropdownWithIcons = () => {
       <TextInput
         style={styles.textInput}
         placeholder={cplaceholder}
-        placeholderTextColor="#AAAAAA"
+        placeholderTextColor={Color.inputText}
+
         //   value={value}
         //   onChangeText={onChangeText}
       />
@@ -110,8 +111,8 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flex: 1,
-    fontSize: FontSize.xl,
-    color: Color.inputText,
+    fontSize: FontSize.l,
+    color: Color.coal,
     fontFamily: FontFamily.robotoRegular,
     paddingHorizontal: 12,
     padding: 0,

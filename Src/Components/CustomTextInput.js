@@ -156,14 +156,14 @@ const styles = StyleSheet.create({
   
   },
   icon: {
-    width: wp(5),
-    height: wp(5),
+    width: wp(4),
+    height: wp(4),
     resizeMode: 'contain',
     marginRight: wp(3),
   },
   textInput: {
     flex: 1,
-    fontSize: FontSize.xl,
+    fontSize: FontSize.l,
     color: Color.coal,
     fontFamily: FontFamily.robotoRegular,
     padding: 0,
