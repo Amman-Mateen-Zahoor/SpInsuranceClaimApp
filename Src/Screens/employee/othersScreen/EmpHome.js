@@ -90,9 +90,11 @@ const EmpHome = () => {
 
 export default EmpHome;
 const styles =StyleSheet.create({
-  container:{  paddingVertical: wp(3),
+  container:{  
+    paddingVertical: wp(3),
     paddingBottom: wp(10),
     paddingHorizontal: wp(5),
+    backgroundColor:'green'
   },
 });
 

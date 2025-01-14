@@ -17,6 +17,7 @@ import {
 import EmpFile from '../screens/employee/othersScreen/EmpFile';
 import Camera from '../screens/Camera';
 import EmpProfile from '../screens/employee/othersScreen/EmpProfile';
+import EmpSetting from '../screens/employee/othersScreen/EmpSetting';
 
 const Tab = createBottomTabNavigator();
 const EmpBottomTab = () => {
@@ -122,7 +123,7 @@ const EmpBottomTab = () => {
           },
         }}
         name="Setting"
-        component={EmpHome}
+        component={EmpSetting}
       />
     </Tab.Navigator>
   );
