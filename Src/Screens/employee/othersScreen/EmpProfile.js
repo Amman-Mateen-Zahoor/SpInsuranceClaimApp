@@ -5,8 +5,11 @@ import { wp } from '../../../utils/utils'
 import { Color, FontFamily, FontSize } from '../../../constants/style'
 import ProfileEntity from '../../../components/ProfileEntity'
 import CustomButton from '../../../components/CustomButton'
+import { useNavigation } from '@react-navigation/native'
+import EmpUpdateprofile from './EmpUpdateprofile'
 
 const EmpProfile = () => {
+    const  navigation = useNavigation()
   return (
   <CommonLayout
   heading={"Profile"}
@@ -34,7 +37,7 @@ const EmpProfile = () => {
     text1={"CVR No."}
     text2={"20700211"}
     />
-    <CustomButton title={"Edit"}/>
+    <CustomButton title={"Edit"} onPress={()=>{navigation.navigate('EmpUpdateProfile')}} />
 </View>
   </CommonLayout>
   )
