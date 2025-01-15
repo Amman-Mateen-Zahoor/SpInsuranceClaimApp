@@ -53,8 +53,8 @@ const UpdateProfileLayout = ({
   subHeading,
   children,
   style,
-title,
-  scrollStyle,
+  title,
+  settingStyle,
   updateProfile,
 }) => {
   const navigation = useNavigation();
@@ -69,62 +69,57 @@ title,
   //   }, []);
   const {top} = useSafeAreaInsets();
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={[styles.topContainer, style]}>
-        <Image
-          source={require('../assets/images/auth-background.png')}
-          style={styles.bgImg}
-        />
-        <TopHeader
-          heading={heading}
-          subHeading={subHeading}
-        />
-        {
-            title &&
+    // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    <View style={[styles.topContainer, style]}>
+      <Image
+        source={require('../assets/images/auth-background.png')}
+        style={styles.bgImg}
+      />
+      <TopHeader heading={heading} subHeading={subHeading} />
+      {title && (
         <Text numberOfLines={1} style={styles.titleStyle}>
           {title}
         </Text>
-}
-        <View
-          style={[styles.mainContent,
-           { 
-        
-            paddingTop:updateProfile ? wp(13):0,
-            marginTop :updateProfile ? wp(12) :0,
-            marginHorizontal:updateProfile ? 0 :wp(5),
+      )}
+      <View
+        style={[
+          styles.mainContent,
+          {
+            paddingTop: updateProfile ? wp(13) : 0,
+            marginTop: updateProfile ? wp(12) : 0,
+            marginHorizontal: updateProfile ? 0 : wp(5),
             // marginBottom:updateProfile ? 0 :wp(10),
-            maxHeight:hp(67),
-            borderBottomLeftRadius:updateProfile ? 0 : wp(5),
-            borderBottomRightRadius:updateProfile ? 0 : wp(5),} , updateProfile &&{ flex:1,}
-          ]}>
-          {updateProfile && (
-            <View style={styles.imgContainer}>
+            maxHeight: updateProfile ? undefined : hp(67),
+            borderBottomLeftRadius: updateProfile ? 0 : wp(5),
+            borderBottomRightRadius: updateProfile ? 0 : wp(5),
+          },
+          updateProfile && {flex: 1},
+        ]}>
+        {updateProfile && (
+          <View style={styles.imgContainer}>
+            <Image
+              source={require('../assets/images/headerP.jpg')}
+              style={styles.img}
+            />
+            <View style={styles.imgeditcontainer}>
               <Image
-                source={require('../assets/images/headerP.jpg')}
-                style={styles.img}
+                source={require('../assets/icons/edit.png')}
+                style={styles.imgedit}
               />
-              <View style={styles.imgeditcontainer}>
-                <Image
-                  source={require('../assets/icons/edit.png')}
-                  style={styles.imgedit}
-                />
-              </View>
             </View>
-          )}
-          <KeyboardAwareScrollView
-            extraScrollHeight={10}
-            showsVerticalScrollIndicator={false}
-            enableOnAndroid
-            keyboardShouldPersistTaps="handled"
-            contentContainerStyle={[
-              styles.contentContainer,
-            ]}
-            >
-            {children}
-          </KeyboardAwareScrollView>
-        </View>
+          </View>
+        )}
+        <KeyboardAwareScrollView
+          extraScrollHeight={10}
+          showsVerticalScrollIndicator={false}
+          enableOnAndroid
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={[styles.contentContainer, settingStyle]}>
+          {children}
+        </KeyboardAwareScrollView>
       </View>
-    </TouchableWithoutFeedback>
+    </View>
+    // </TouchableWithoutFeedback>
   );
 };
 
@@ -173,7 +168,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.m,
     alignSelf: 'center',
     marginTop: wp(2),
-    color:Color.lightBlue
+    color: Color.lightBlue,
   },
   txtSubheader: {
     fontFamily: FontFamily.robotoRegular,
@@ -193,12 +188,13 @@ const styles = StyleSheet.create({
   contentContainer: {
     flexGrow: 1,
     paddingHorizontal: wp(5),
+    // paddingTop:wp(5),
   },
   imgContainer: {
     position: 'absolute',
     top: wp(-12),
     alignSelf: 'center',
-    justifyContent:'center'
+    justifyContent: 'center',
   },
   img: {
     height: wp(22),
@@ -214,7 +210,7 @@ const styles = StyleSheet.create({
     backgroundColor: Color.darkBlue,
     borderWidth: 1.5,
     borderColor: Color.lightBlue,
-    position:"absolute",
+    position: 'absolute',
     // top: 0,
     right: wp(-3),
   },
@@ -228,15 +224,17 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontFamily: FontFamily.robotoBold,
     fontSize: FontSize.l,
-    marginLeft:wp(5),
-    marginBottom:wp(5),
-    color:Color.lightBlue
+    marginLeft: wp(5),
+    marginBottom: wp(5),
+    color: Color.lightBlue,
   },
-  mainContent:{
+  mainContent: {
     // flexGrow: 1,
     backgroundColor: Color.white,
     borderTopLeftRadius: wp(5),
     borderTopRightRadius: wp(5),
-
+  },
+  updatedProfile:{
+    
   }
 });

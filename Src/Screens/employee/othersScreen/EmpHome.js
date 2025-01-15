@@ -94,7 +94,6 @@ const styles =StyleSheet.create({
     paddingVertical: wp(3),
     paddingBottom: wp(10),
     paddingHorizontal: wp(5),
-    backgroundColor:'green'
   },
 });
 

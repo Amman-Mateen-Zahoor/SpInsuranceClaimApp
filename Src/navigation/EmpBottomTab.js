@@ -4,8 +4,9 @@ import {
   View,
   TouchableWithoutFeedback,
   Pressable,
+  Keyboard,
 } from 'react-native';
-import React, {lazy} from 'react';
+import React, {lazy, useEffect, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import EmpHome from '../screens/employee/othersScreen/EmpHome';
 import {wp} from '../utils/utils';
@@ -22,14 +23,24 @@ import EmpSetting from '../screens/employee/othersScreen/EmpSetting';
 const Tab = createBottomTabNavigator();
 const EmpBottomTab = () => {
   const {bottom} = useSafeAreaInsets();
+  const [keyboardVisible, setKeyboardVisible] = useState(false);
+  useEffect(() => {
+    const showListener = Keyboard.addListener("keyboardDidShow", () => setKeyboardVisible(true));
+    const hideListener = Keyboard.addListener("keyboardDidHide", () => setKeyboardVisible(false));
 
+    return () => {
+      showListener.remove();
+      hideListener.remove();
+    };
+  }, []);
   return (
     <Tab.Navigator
     backBehavior='history'
-      screenOptions={{
-        tabBarActiveTintColor: Color.darkBlue,
-        tabBarStyle: {height: wp(17) + bottom},
 
+      screenOptions={{
+        
+        tabBarActiveTintColor: Color.darkBlue,
+        tabBarStyle:keyboardVisible ? { display: "none" } : {height: wp(17) + bottom},
         // tabBarLabelStyle:{marginTop:30},
         // tabBarIconStyle:{paddingBottom:10},
         headerShown: false,
