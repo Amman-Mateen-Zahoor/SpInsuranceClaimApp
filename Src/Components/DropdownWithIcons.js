@@ -12,6 +12,7 @@ const DropdownWithIcons = () => {
   const [cplaceholder, SetCplaceholder] = useState(
     PHONE_REGEX['+45'].placeholder,
   );
+ 
   return (
     <View style={styles.mainContainer}>
       <Dropdown

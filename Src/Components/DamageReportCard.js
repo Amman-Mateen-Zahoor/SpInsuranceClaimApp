@@ -2,11 +2,13 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { wp } from '../utils/utils';
 import { Color, FontFamily, FontSize } from '../constants/style';
+import { useNavigation } from '@react-navigation/native';
 
 const DamageReportCard = ({item}) => {
+  const navigation =useNavigation()
   return (
     <Pressable
-      onPress={() => console.log('first')}
+      onPress={() => navigation.navigate('EmpQuestionere')}
       style={styles.content}>
       <Image
         source={require('../assets/images/homecontentbgtop.png')}

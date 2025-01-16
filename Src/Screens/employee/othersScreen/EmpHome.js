@@ -77,11 +77,12 @@ const EmpHome = () => {
 
 
   return (
-    <CommonLayout home={true}>
+    <CommonLayout home={true} disablScrollView>
       <FlatList
         data={data}
         contentContainerStyle={styles.container}
-        renderItem={DamageReportCard}
+        // renderItem={DamageReportCard}
+        renderItem={({ item }) => <DamageReportCard item={item} />}
         numColumns={2}
       />
     </CommonLayout>

@@ -14,20 +14,31 @@ import {wp} from '../utils/utils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import HeaderHome from '../components/HeaderHome';
 import Header from '../components/Header';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const CommonLayout = ({children, home ,heading}) => {
-  useLayoutEffect(() => {
-    if (Platform.OS === 'android') {
-      StatusBar.setTranslucent(true);
-      StatusBar.setBackgroundColor('transparent');
-    }
-    StatusBar.setHidden(false);
-    StatusBar.setBarStyle('light-content');
-  }, []);
+const CommonLayout = ({children, home, heading, disablScrollView}) => {
+  // useLayoutEffect(() => {
+  //   if (Platform.OS === 'android') {
+  //     StatusBar.setTranslucent(true);
+  //     StatusBar.setBackgroundColor('transparent');
+  //   }
+  //   StatusBar.setHidden(false);
+  //   StatusBar.setBarStyle('light-content');
+  // }, []);
   return (
     <View style={styles.mainContainer}>
-     { home?<HeaderHome />:<Header heading={heading}/> }
-      {children}
+      {home ? <HeaderHome /> : <Header heading={heading} />}
+      {disablScrollView ? (
+        children
+      ) : (
+        <KeyboardAwareScrollView
+          extraHeight={10}
+          enableOnAndroid
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={styles.mainContent}>
+          {children}
+        </KeyboardAwareScrollView>
+      )}
     </View>
   );
 };
@@ -39,4 +50,5 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Color.white,
   },
+  mainContent: {padding: wp(5)},
 });

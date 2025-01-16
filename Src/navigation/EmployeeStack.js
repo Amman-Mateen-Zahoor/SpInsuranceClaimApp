@@ -4,6 +4,8 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack"
 import EmpBottomTab from './EmpBottomTab'
 import EmpUpdateprofile from '../screens/employee/othersScreen/EmpUpdateprofile'
 import EmpProfile from '../screens/employee/othersScreen/EmpProfile'
+import EmpHome from '../screens/employee/othersScreen/EmpHome'
+import EmpQuestionnaire from '../screens/employee/othersScreen/EmpQuestionnaire'
 const Stack = createNativeStackNavigator()
 
 const EmployeeStack = () => {
@@ -12,6 +14,8 @@ const EmployeeStack = () => {
 <Stack.Screen name='EmpBottomTab' component={EmpBottomTab}/>
 <Stack.Screen name='EmpProfile' component={EmpProfile}/>
 <Stack.Screen  name='EmpUpdateProfile' component={EmpUpdateprofile}/>
+<Stack.Screen name='EmpHome' component={EmpHome}/>
+<Stack.Screen name='EmpQuestionere' component={EmpQuestionnaire}/>
 </Stack.Navigator>
 )
 }

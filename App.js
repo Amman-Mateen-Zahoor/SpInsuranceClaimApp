@@ -7,11 +7,13 @@ import EmpHome from './src/screens/employee/othersScreen/EmpHome';
 import CommonLayout from './src/layout/CommonLayout';
 import Camera from './src/screens/Camera';
 import ProfileEntity from './src/components/ProfileEntity';
+import Questions from './src/components/Questions';
 
 const App = () => {
   return (
     <SafeAreaProvider style={{flex: 1}}>
       <RootNavigation />
+      {/* <Questions/> */}
     </SafeAreaProvider>
   );
 };

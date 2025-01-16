@@ -11,6 +11,7 @@ import TestCodes from './src/screens/TestCodes';
 import EmpHome from './src/screens/employee/othersScreen/EmpHome';
 import CommonLayout from './src/layout/CommonLayout';
 import Camera from './src/screens/Camera';
+import ParentTestCodes from './src/screens/ParentTestCodes';
 
 
 
