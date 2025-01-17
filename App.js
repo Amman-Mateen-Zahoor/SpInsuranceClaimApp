@@ -8,12 +8,14 @@ import CommonLayout from './src/layout/CommonLayout';
 import Camera from './src/screens/Camera';
 import ProfileEntity from './src/components/ProfileEntity';
 import Questions from './src/components/Questions';
+import HeaderHome from './src/components/HeaderHome';
+import Header from './src/components/Header';
 
 const App = () => {
   return (
     <SafeAreaProvider style={{flex: 1}}>
       <RootNavigation />
-      {/* <Questions/> */}
+       {/* <Header/> */}
     </SafeAreaProvider>
   );
 };

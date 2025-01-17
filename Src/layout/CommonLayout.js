@@ -16,7 +16,7 @@ import HeaderHome from '../components/HeaderHome';
 import Header from '../components/Header';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const CommonLayout = ({children, home, heading, disablScrollView}) => {
+const CommonLayout = ({children, home, heading, disablScrollView,search}) => {
   // useLayoutEffect(() => {
   //   if (Platform.OS === 'android') {
   //     StatusBar.setTranslucent(true);
@@ -27,7 +27,7 @@ const CommonLayout = ({children, home, heading, disablScrollView}) => {
   // }, []);
   return (
     <View style={styles.mainContainer}>
-      {home ? <HeaderHome /> : <Header heading={heading} />}
+      {home ? <HeaderHome /> : <Header heading={heading} search={search} />}
       {disablScrollView ? (
         children
       ) : (

@@ -25,7 +25,7 @@ const EmpFile = () => {
     {date:'May 25,2023',type:'Vehicle'},
   ]);
   return (
-    <CommonLayout heading={'Files'}>
+    <CommonLayout heading={'Files'} disablScrollView>
         <View style={styles.container1}>
           <Text style={styles.Heading1}>Damage Reports</Text>
           <Pressable style={styles.btnTop}>

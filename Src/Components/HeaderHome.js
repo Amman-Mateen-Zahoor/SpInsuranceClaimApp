@@ -3,11 +3,13 @@ import React from 'react'
 import { Color, FontFamily, FontSize } from '../constants/style'
 import { wp } from '../utils/utils'
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 
 
 const HeaderHome = () => {
     const {top} = useSafeAreaInsets();
+    // const navigation =useNavigation()
   return (
     <View style={styles.topContainer}>
            <Image
@@ -22,7 +24,8 @@ const HeaderHome = () => {
              <Text numberOfLines={1} style={styles.txtheader}>
                Hello! William Karlsson
              </Text>
-             <TouchableOpacity>
+             <TouchableOpacity >
+             {/* onPress={()=>(navigation.navigate("EmpNotify"))} */}
                <Image
                  source={require('../assets/icons/notifications.png')}
                  style={styles.icon2}
@@ -81,4 +84,5 @@ const styles = StyleSheet.create({
     // marginLeft: wp(5),
     top: -2,
     right: -1,
-  },})
+  }
+})

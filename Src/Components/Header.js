@@ -1,11 +1,11 @@
-import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {Color, FontFamily, FontSize} from '../constants/style';
 import {wp} from '../utils/utils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
 
-const Header = ({heading}) => {
+const Header = ({heading,search}) => {
     const navigation =useNavigation()
   const {top} = useSafeAreaInsets();
   return (
@@ -16,7 +16,7 @@ const Header = ({heading}) => {
       />
       <View style={[styles.header, {marginTop: wp(4) + top}]}>
         <TouchableOpacity 
-        onPress={()=>{navigation.goBack()}}
+        // onPress={()=>{navigation.goBack()}}
         hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}>
           <Image
             source={require('../assets/icons/leftarrow.png')}
@@ -26,15 +26,34 @@ const Header = ({heading}) => {
         <Text numberOfLines={1} style={styles.txtheader}>
           {heading}
         </Text>
-
-        <TouchableOpacity>
+      { !search&&(
+        <TouchableOpacity onPress={()=>(navigation.navigate('EmpNotify'))}>
           <Image
             source={require('../assets/icons/notifications.png')}
             style={styles.icon2}
           />
           <Text style={styles.badge} />
-        </TouchableOpacity>
+        </TouchableOpacity>)}
       </View>
+      { search && (
+         <View style={styles.searchContainer}>
+                 <TextInput
+                 placeholder='Search...'
+                 placeholderTextColor={Color.inputText}
+                 style={{flex:1}}
+                 />
+   <Pressable
+   hitSlop={{left:5,right:5,bottom:5,top:5}}
+   onPress={()=>(console.log("first"))}>
+       <Image 
+       source={require('../assets/icons/search.png')}
+       style={{
+        height:wp(5),
+        width:wp(5)
+       }}
+       /></Pressable>
+                 </View>)
+                 }
     </View>
   );
 };
@@ -91,4 +110,14 @@ const styles = StyleSheet.create({
     top: -2,
     right: -1,
   },
+  searchContainer:{
+    backgroundColor:Color.white,
+    marginHorizontal:wp(5),
+    marginBottom:wp(5),
+    borderRadius:wp(4),
+    paddingHorizontal:wp(3),
+    flexDirection:"row",
+    justifyContent:'center',
+    alignItems:'center',
+  }
 });
