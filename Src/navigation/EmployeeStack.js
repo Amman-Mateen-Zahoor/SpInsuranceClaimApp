@@ -6,6 +6,7 @@ import EmpUpdateprofile from '../screens/employee/othersScreen/EmpUpdateprofile'
 import EmpProfile from '../screens/employee/othersScreen/EmpProfile'
 import EmpHome from '../screens/employee/othersScreen/EmpHome'
 import EmpQuestionnaire from '../screens/employee/othersScreen/EmpQuestionnaire'
+import EmpNextQuestionnare from '../screens/employee/othersScreen/EmpNextQuestionnare'
 const Stack = createNativeStackNavigator()
 
 const EmployeeStack = () => {
@@ -16,6 +17,7 @@ const EmployeeStack = () => {
 <Stack.Screen  name='EmpUpdateProfile' component={EmpUpdateprofile}/>
 <Stack.Screen name='EmpHome' component={EmpHome}/>
 <Stack.Screen name='EmpQuestionere' component={EmpQuestionnaire}/>
+<Stack.Screen name='EmpNextQuestionnare' component={EmpNextQuestionnare}/>
 </Stack.Navigator>
 )
 }

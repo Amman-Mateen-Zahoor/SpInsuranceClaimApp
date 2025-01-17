@@ -3,8 +3,12 @@ import React from 'react'
 import CommonLayout from '../../../layout/CommonLayout'
 import Questions from '../../../components/Questions'
 import { wp } from '../../../utils/utils'
+import CustomButton from '../../../components/CustomButton'
+import { useNavigation } from '@react-navigation/native'
+const ListItems =[{label:'Car'},{label:'Bike'}]
 
 const EmpQuestionnaire = () => {
+  const navigation = useNavigation()
   return (
    <CommonLayout
    heading={"Questionnare"}
@@ -12,7 +16,8 @@ const EmpQuestionnaire = () => {
   
   <Questions 
   placeholder={"Select Vehicle"}
-  customDropdown/>
+ListItems={ListItems}
+customDropdown/>
      <Questions
   placeholder={"Enter Date of Injury"}
     customDate
@@ -29,7 +34,10 @@ const EmpQuestionnaire = () => {
     <Questions 
   placeholder={"Select Vehicle Type"}
   customDropdown/>
-  
+  <CustomButton
+   title={'Next'}
+   onPress={()=>(navigation.navigate('EmpNextQuestionnare'))}
+  />
    </CommonLayout>
   )
 }

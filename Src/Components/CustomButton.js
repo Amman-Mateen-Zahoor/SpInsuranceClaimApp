@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {Color, FontSize} from '../constants/style';
+import {Color, FontFamily, FontSize} from '../constants/style';
 import {hp, wp} from '../utils/utils';
 import ArrowRight from 'react-native-vector-icons/FontAwesome6';
 
@@ -33,7 +33,9 @@ const styles = StyleSheet.create({
     
   },
   btntext: {
-    fontSize: FontSize.xl,
+    fontFamily:FontFamily.robotoRegular,
+    fontSize: FontSize.l,
     color: Color.lightBlue,
+    
   },
 });
