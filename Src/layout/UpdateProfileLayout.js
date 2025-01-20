@@ -14,7 +14,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const TopHeader = ({heading, subHeading}) => {
+const TopHeader = ({heading, subHeading, notify}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   return (
@@ -29,7 +29,7 @@ const TopHeader = ({heading, subHeading}) => {
           style={styles.icon}
         />
       </TouchableOpacity>
-      <View>
+      <View style={notify && styles.noNotify}>
         <Text numberOfLines={1} style={styles.txtheader}>
           {heading}
         </Text>
@@ -37,13 +37,15 @@ const TopHeader = ({heading, subHeading}) => {
           {subHeading}
         </Text>
       </View>
-      <TouchableOpacity>
-        <Image
-          source={require('../assets/icons/notifications.png')}
-          style={styles.icon2}
-        />
-        <Text style={styles.badge} />
-      </TouchableOpacity>
+      {!notify ? (
+        <TouchableOpacity     onPress={() => navigation.navigate('EmpNotify')}>
+          <Image
+            source={require('../assets/icons/notifications.png')}
+            style={styles.icon2}
+          />
+          <Text style={styles.badge} />
+        </TouchableOpacity>
+      ) : null}
     </View>
   );
 };
@@ -56,6 +58,8 @@ const UpdateProfileLayout = ({
   title,
   settingStyle,
   updateProfile,
+  notify,
+  styleKeyboard
 }) => {
   const navigation = useNavigation();
   //  useLayoutEffect(() => {
@@ -75,7 +79,7 @@ const UpdateProfileLayout = ({
         source={require('../assets/images/auth-background.png')}
         style={styles.bgImg}
       />
-      <TopHeader heading={heading} subHeading={subHeading} />
+      <TopHeader heading={heading} subHeading={subHeading} notify={notify} />
       {title && (
         <Text numberOfLines={1} style={styles.titleStyle}>
           {title}
@@ -86,7 +90,7 @@ const UpdateProfileLayout = ({
           styles.mainContent,
           {
             paddingTop: updateProfile ? wp(13) : 0,
-            marginTop: updateProfile ? wp(12) : 0,
+            marginTop: updateProfile ? wp(12) : wp(5),
             marginHorizontal: updateProfile ? 0 : wp(5),
             // marginBottom:updateProfile ? 0 :wp(10),
             maxHeight: updateProfile ? undefined : hp(67),
@@ -114,7 +118,9 @@ const UpdateProfileLayout = ({
           showsVerticalScrollIndicator={false}
           enableOnAndroid
           keyboardShouldPersistTaps="handled"
-          contentContainerStyle={[styles.contentContainer, settingStyle]}>
+          contentContainerStyle={[styles.contentContainer, settingStyle]}
+          style={[styleKeyboard]}
+           >
           {children}
         </KeyboardAwareScrollView>
       </View>
@@ -173,6 +179,9 @@ const styles = StyleSheet.create({
   txtSubheader: {
     fontFamily: FontFamily.robotoRegular,
     fontSize: FontSize.m,
+  },
+  noNotify: {
+    flex: 1,
   },
   badge: {
     height: wp(1.5),
@@ -234,7 +243,5 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: wp(5),
     borderTopRightRadius: wp(5),
   },
-  updatedProfile:{
-    
-  }
+  updatedProfile: {},
 });

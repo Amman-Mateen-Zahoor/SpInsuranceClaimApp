@@ -4,7 +4,7 @@ import AuthLayout from '../../layout/AuthLayout'
 import CustomTextInput from '../../components/CustomTextInput';
 import CustomButton from '../../components/CustomButton';
 import { wp } from '../../utils/utils';
-import UpdatedPasswordPopUp from '../../modals/UpdatedPasswordPopUp';
+import PopUp from '../../modals/PopUp';
 
 
 const SetNewPassword = ({from}) => {
@@ -35,8 +35,14 @@ mainButtonText={"Submit"}
       
        
     
-        <CustomButton title="Submit" style={{width: wp(90)}} onPress={()=>{SetSendVisible(true)}} />
-          <UpdatedPasswordPopUp visible={sendVisible} handleClose={()=>{SetSendVisible(false)}}/>
+      <CustomButton title="Submit" style={{width: wp(90)}} onPress={()=>{SetSendVisible(true)}} />
+      <PopUp visible={sendVisible}
+       handleClose={()=>{SetSendVisible(false)}}
+       iconSource={require('../../assets/icons/check.png')}
+       mainHeading={'Updated Successfully'}
+       description={'Your Password has been updated '}
+       status={'successfully'}
+       />
 </AuthLayout>
   )
 }

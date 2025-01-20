@@ -8,6 +8,9 @@ import EmpHome from '../screens/employee/othersScreen/EmpHome'
 import EmpQuestionnaire from '../screens/employee/othersScreen/EmpQuestionnaire'
 import EmpNextQuestionnare from '../screens/employee/othersScreen/EmpNextQuestionnare'
 import EmpNotify from '../screens/employee/othersScreen/EmpNotify'
+import EmpUpdatePassword from '../screens/employee/othersScreen/EmpUpdatePassword'
+import EmpSetLanguage from '../screens/employee/othersScreen/EmpSetLanguage'
+import EmpContactUs from '../screens/employee/othersScreen/EmpContactUs'
 const Stack = createNativeStackNavigator()
 
 const EmployeeStack = () => {
@@ -20,6 +23,9 @@ const EmployeeStack = () => {
 <Stack.Screen name='EmpQuestionere' component={EmpQuestionnaire}/>
 <Stack.Screen name='EmpNextQuestionnare' component={EmpNextQuestionnare}/>
 <Stack.Screen name='EmpNotify' component={EmpNotify}/>
+<Stack.Screen name='EmpUpdatePassword' component={EmpUpdatePassword}/>
+<Stack.Screen name='EmpSetLanguage' component={EmpSetLanguage}/>
+<Stack.Screen name='EmpContactUs' component={EmpContactUs}/>
 </Stack.Navigator>
 )
 }

@@ -9,12 +9,12 @@ const CustomButton = ({
   onPress,
   style,
   iconName,
-  
+  btnTxt,
   iconSize,
 }) => {
   return (
     <TouchableOpacity style={[styles.btnContainer, style]} onPress={onPress}>
-      <Text style={styles.btntext}>{title}{'  '}<ArrowRight name={iconName} size= { 14} /></Text>
+      <Text style={[styles.btntext,btnTxt]}>{title}{'  '}<ArrowRight name={iconName} size= { 14} /></Text>
     </TouchableOpacity>
   );
 };

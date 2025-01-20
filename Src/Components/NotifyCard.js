@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   content: {
     padding: wp(5),
     flexDirection: 'row',
-    margin: wp(5),
+    margin: wp(2),
     backgroundColor: Color.white,
     borderRadius: wp(3),
     elevation: 2,

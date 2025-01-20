@@ -1,11 +1,13 @@
 import { Image, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import CommonLayout from '../../../layout/CommonLayout'
 import { Color, FontFamily, FontSize } from '../../../constants/style'
 import { wp } from '../../../utils/utils'
 import CustomButton from '../../../components/CustomButton'
+import PopUp from '../../../modals/PopUp'
 
 const EmpNextQuestionnare = () => {
+const [sendVisible,SetSendVisible]=useState(false)
   return (
    <CommonLayout
    heading={'Questionnare'}
@@ -29,7 +31,15 @@ const EmpNextQuestionnare = () => {
   <CustomButton
   title={'Submit Damage Report'}
   style={{marginTop:wp(7)}}
+  onPress={()=>{SetSendVisible(true)}}
   />
+  <PopUp visible={sendVisible}
+       handleClose={()=>{SetSendVisible(false)}}
+       iconSource={require('../../../assets/icons/check.png')}
+       mainHeading={'Submitted Successfully'}
+       description={'Your damage report has been  '}
+       status={'submitted successfully'}
+       />
    </CommonLayout>
   )
 }

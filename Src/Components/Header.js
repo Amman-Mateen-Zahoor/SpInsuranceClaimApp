@@ -16,15 +16,15 @@ const Header = ({heading,search}) => {
       />
       <View style={[styles.header, {marginTop: wp(4) + top}]}>
         <TouchableOpacity 
-        // onPress={()=>{navigation.goBack()}}
+        onPress={()=>{navigation.goBack()}}
         hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}>
           <Image
             source={require('../assets/icons/leftarrow.png')}
             style={styles.icon}
           />
         </TouchableOpacity>
-        <Text numberOfLines={1} style={styles.txtheader}>
-          {heading}
+        <Text numberOfLines={1} style={[styles.txtheader,search&&styles.noNotify]} >
+        {search ? 'Notifications' : heading }
         </Text>
       { !search&&(
         <TouchableOpacity onPress={()=>(navigation.navigate('EmpNotify'))}>
@@ -98,6 +98,9 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.robotoBold,
     color: Color.white,
     fontSize: FontSize.xl,
+
+
+    
   },
   badge: {
     height: wp(1.5),
@@ -119,5 +122,9 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     justifyContent:'center',
     alignItems:'center',
+  },
+  noNotify:{
+    flex:1,
+    textAlign:'center'
   }
 });

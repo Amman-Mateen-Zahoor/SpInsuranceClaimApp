@@ -1,50 +1,50 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
-import { Color, FontFamily, FontSize } from '../constants/style'
-import { wp } from '../utils/utils'
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { useNavigation } from '@react-navigation/native';
-
-
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import React from 'react';
+import {Color, FontFamily, FontSize} from '../constants/style';
+import {wp} from '../utils/utils';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
 
 const HeaderHome = () => {
-    const {top} = useSafeAreaInsets();
-    // const navigation =useNavigation()
+  const {top} = useSafeAreaInsets();
+  const navigation = useNavigation();
   return (
     <View style={styles.topContainer}>
-           <Image
-             source={require('../assets/images/auth-background.png')}
-             style={styles.bgImg}
-           />
-           <View style={[styles.header, {marginTop: wp(4) + top}]}>
-             <Image
-               source={require('../assets/images/headerP.jpg')}
-               style={styles.icon}
-             />
-             <Text numberOfLines={1} style={styles.txtheader}>
-               Hello! William Karlsson
-             </Text>
-             <TouchableOpacity >
-             {/* onPress={()=>(navigation.navigate("EmpNotify"))} */}
-               <Image
-                 source={require('../assets/icons/notifications.png')}
-                 style={styles.icon2}
-               />
-               <Text style={styles.badge} />
-             </TouchableOpacity>
-           </View>
-         </View>
-  )
-}
+      <Image
+        source={require('../assets/images/auth-background.png')}
+        style={styles.bgImg}
+      />
+      <View style={[styles.header, {marginTop: wp(4) + top}]}>
+        <Image
+          source={require('../assets/images/headerP.jpg')}
+          style={styles.icon}
+        />
+        <Text numberOfLines={1} style={styles.txtheader}>
+          Hello! William Karlsson
+        </Text>
+        <TouchableOpacity
+        onPress={() => navigation.navigate('EmpNotify')}
+        >
+          
+          <Image
+            source={require('../assets/icons/notifications.png')}
+            style={styles.icon2}
+          />
+          <Text style={styles.badge} />
+        </TouchableOpacity>
+      </View>
+    </View>
+  );
+};
 
-export default HeaderHome
+export default HeaderHome;
 
-const styles = StyleSheet.create({ 
-    bgImg: {
-        position: 'absolute',
-        right: 0,
-      },
-    topContainer: {
+const styles = StyleSheet.create({
+  bgImg: {
+    position: 'absolute',
+    right: 0,
+  },
+  topContainer: {
     backgroundColor: Color.darkBlue,
     borderBottomLeftRadius: wp(7),
     borderBottomRightRadius: wp(7),
@@ -84,5 +84,5 @@ const styles = StyleSheet.create({
     // marginLeft: wp(5),
     top: -2,
     right: -1,
-  }
-})
+  },
+});

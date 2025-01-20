@@ -15,7 +15,6 @@ const App = () => {
   return (
     <SafeAreaProvider style={{flex: 1}}>
       <RootNavigation />
-       {/* <Header/> */}
     </SafeAreaProvider>
   );
 };

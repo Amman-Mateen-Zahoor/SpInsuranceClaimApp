@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
-import React from 'react';
+import React, { useState } from 'react';
 import UpdateProfileLayout from '../../../layout/UpdateProfileLayout';
 import {Color, FontFamily, FontSize} from '../../../constants/style';
 import {wp} from '../../../utils/utils';
@@ -7,8 +7,10 @@ import CustomTextInput from '../../../components/CustomTextInput';
 import DropdownWithIcons from '../../../components/DropdownWithIcons';
 import CustomButton from '../../../components/CustomButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Popup from '../../../modals/PopUp';
 
 const EmpUpdateprofile = () => {
+          const [sendVisible,SetSendVisible]=useState(false)
   return (
     <UpdateProfileLayout
       heading={'Update Profile'}
@@ -31,7 +33,16 @@ const EmpUpdateprofile = () => {
         imageSource={require('../../../assets/icons/cvr.png')}
         placeholder={'Cvr No.'}
       />
-      <CustomButton title={'Update'} />
+      <CustomButton title={'Update'} 
+          onPress={()=>{SetSendVisible(true)}}
+      />
+       <Popup visible={sendVisible}
+       handleClose={()=>{SetSendVisible(false)}}
+       iconSource={require('../../../assets/icons/check.png')}
+       mainHeading={'Updated Successfully'}
+       description={'Your Profile has been updated '}
+       status={'successfully'}
+       />
     </UpdateProfileLayout>
   );
 };

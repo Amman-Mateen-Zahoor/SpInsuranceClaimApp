@@ -6,10 +6,10 @@
 // import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // const CustomTextInput = ({placeholder,value,onChangeText,imageSource,secureTextEntry,style,...props}) => {
- 
+
 //   const [passwordVisible, setPasswordVisible] = useState(true);
 //   return (
-   
+
 //       <View style={styles.container}>
 //         {/* Icon (Image) */}
 //         <Image
@@ -25,7 +25,7 @@
 //           onChangeText={onChangeText}
 //           secureTextEntry={secureTextEntry}
 //           {...props}
-          
+
 //         />
 //         <TouchableOpacity
 //         style={styles.iconContainer}
@@ -38,22 +38,20 @@
 //         />
 //         </TouchableOpacity>
 //       </View>
-   
+
 //   );
 // };
 
 // const styles = StyleSheet.create({
 //     // container: {
-        
+
 //     //     justifyContent: 'center',
-       
+
 //     //     backgroundColor:Color.inputField,
 //     //     height:wp(18),
 
-        
-        
 //     //   },
-    
+
 //     container: {
 //     flexDirection: 'row',
 //     alignItems: 'center',
@@ -62,7 +60,7 @@
 //     // backgroundColor:'red',
 //     paddingVertical: wp(1.5),
 //     marginTop:wp(4)
-    
+
 //   },
 //   icon: {
 //     width: wp(5),
@@ -85,11 +83,19 @@
 
 // export default CustomTextInput;
 
-import React, { useRef, useState } from 'react';
-import { View, TextInput, StyleSheet, Image, TouchableOpacity, Pressable } from 'react-native';
+import React, {useRef, useState} from 'react';
+import {
+  View,
+  TextInput,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Pressable,
+  Text,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { Color, FontFamily, FontSize } from '../constants/style';
-import { wp } from '../utils/utils';
+import {Color, FontFamily, FontSize} from '../constants/style';
+import {wp} from '../utils/utils';
 
 const CustomTextInput = ({
   placeholder,
@@ -98,48 +104,50 @@ const CustomTextInput = ({
   imageSource,
   secureTextEntry,
   style,
+  contactUS,
+  text2,
   ...props
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
-  const inputElement =useRef()
-  const focusInput = () =>{
+  const inputElement = useRef();
+  const focusInput = () => {
     inputElement.current.focus();
-  } 
+  };
   return (
-    <Pressable onPress={focusInput}>
-    <View style={styles.container}>
-      {/* Icon (Image) */}
-      {imageSource && (
-        <Image
-          source={imageSource}
-          style={styles.icon}
-        />
-      )}
-      {/* TextInput */}
-      <TextInput
-        ref={inputElement}
-        style={[styles.textInput, style]}
-        placeholder={placeholder}
-        placeholderTextColor={Color.inputText}
-        value={value}
-        onChangeText={onChangeText}
-        secureTextEntry={secureTextEntry && isPasswordVisible}
-        {...props}
-      />
-      {/* Password Toggle Icon */}
-      {secureTextEntry && (
-        <TouchableOpacity
-          style={styles.iconContainer}
-          onPress={() => setIsPasswordVisible(!isPasswordVisible)}
-        >
-          <Icon
-            name={isPasswordVisible ? 'eye-off' : 'eye'}
-            size={20}
-            color={Color.inputText}
+    <Pressable onPress={focusInput} disabled={contactUS}>
+      <View style={styles.container}>
+        {/* Icon (Image) */}
+        {imageSource && <Image source={imageSource} style={styles.icon} />}
+        {/* TextInput */}
+        {!contactUS ? (
+          <TextInput
+            ref={inputElement}
+            style={[styles.textInput, style]}
+            placeholder={placeholder}
+            placeholderTextColor={Color.inputText}
+            value={value}
+            onChangeText={onChangeText}
+            secureTextEntry={secureTextEntry && isPasswordVisible}
+            {...props}
           />
-        </TouchableOpacity>
-      )}
-    </View>
+        ) : (
+          <Text numberOfLines={1} style={[styles.textInput]}>
+            {text2}
+          </Text>
+        )}
+        {/* Password Toggle Icon */}
+        {secureTextEntry && (
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => setIsPasswordVisible(!isPasswordVisible)}>
+            <Icon
+              name={isPasswordVisible ? 'eye-off' : 'eye'}
+              size={20}
+              color={Color.inputText}
+            />
+          </TouchableOpacity>
+        )}
+      </View>
     </Pressable>
   );
 };
@@ -152,8 +160,6 @@ const styles = StyleSheet.create({
     borderColor: Color.inputField,
     paddingVertical: wp(1.5),
     marginTop: wp(4),
-    
-  
   },
   icon: {
     width: wp(4),

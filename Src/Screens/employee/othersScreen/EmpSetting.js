@@ -4,10 +4,12 @@ import UpdateProfileLayout from '../../../layout/UpdateProfileLayout'
 import { wp } from '../../../utils/utils'
 import { Color, FontFamily, FontSize } from '../../../constants/style'
 import ToggleSwitch from 'toggle-switch-react-native'
-const Item =({imgSourceleft,renderRightIcon,heading1,heading2,isToggle})=>{
+import { useNavigation } from '@react-navigation/native'
+import Popup from '../../../modals/PopUp'
+const Item =({imgSourceleft,renderRightIcon,heading1,heading2,isToggle,onPress})=>{
  
   return(
-    <Pressable  disabled={isToggle} onPress={()=>console.log('first')}>
+    <Pressable  disabled={isToggle} onPress={onPress}>
   <View style={styles.Content}> 
   <Image
   source={imgSourceleft}
@@ -22,10 +24,11 @@ const Item =({imgSourceleft,renderRightIcon,heading1,heading2,isToggle})=>{
  </Pressable>
 
 )}
-
 const EmpSetting = () => {
   const [toggleSwitch,setToggleSwitch] = useState();
-
+  const navigation = useNavigation()
+  const [sendVisibleLogout,SetSendVisibleLogout]=useState(false)
+  const [sendVisibleDel,SetSendVisibleDel]=useState(false)
   return (
  <UpdateProfileLayout
  heading={'Settings'}
@@ -44,9 +47,11 @@ renderRightIcon={<ToggleSwitch
   offColor={Color.inputField}
   size='small'
   onToggle={setToggleSwitch}
+  
   />}
  />
  <Item
+ onPress={()=>(navigation.navigate('EmpSetLanguage'))}
  imgSourceleft={require("../../../assets/icons/language.png")}
   heading1={"Language"}
   heading2={'Change Language'}
@@ -57,6 +62,7 @@ renderRightIcon ={
   /> }
  />
    <Item
+   onPress={()=>(navigation.navigate("EmpUpdatePassword"))}
  imgSourceleft={require("../../../assets/icons/lock.png")}
   heading1={"Password"}
   heading2={'Change Password'}
@@ -78,6 +84,7 @@ renderRightIcon ={
  />
  
     <Item
+ onPress={()=>(navigation.navigate('EmpContactUs'))}
  imgSourceleft={require("../../../assets/icons/contact-us.png")}
   heading1={"Contact Us"}
   heading2={'Get In Touch'}
@@ -91,13 +98,32 @@ renderRightIcon ={
  heading1={"Delete"}
  heading2={"Click to delete account"}
  imgSourceleft={require('../../../assets/icons/delete-account.png')}
+ onPress={()=>{SetSendVisibleDel(true)}}
+
  />
  <Item
  heading1={"Log Out"}
  heading2={"Click To Log Out"}
  imgSourceleft={require('../../../assets/icons/logout.png')}
+ onPress={()=>{SetSendVisibleLogout(true)}}
  />
- 
+ <Popup
+ delLogin
+ visible={sendVisibleLogout}
+  handleClose={()=>{SetSendVisibleLogout(false)}}
+  iconSource={require('../../../assets/icons/LogoutC.png')}
+  mainHeading={'Log Out'}
+  description={'Are you sure you want to log out?'}
+  />
+<Popup
+ delLogin
+ visible={sendVisibleDel}
+  handleClose={()=>{SetSendVisibleDel(false)}}
+  iconSource={require('../../../assets/icons/trash.png')}
+  mainHeading={'Delete account'}
+  description={'Are you sure you want to delete your'}
+  status={'account?'}
+  />
   
   
 
