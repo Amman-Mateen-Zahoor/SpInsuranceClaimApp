@@ -2,14 +2,15 @@ import {Pressable, StyleSheet, Text, View} from 'react-native';
 import React, {useState} from 'react';
 import CustomTextInput from '../../../components/CustomTextInput';
 import AuthLayout from '../../../layout/AuthLayout';
-
 import {Color, FontFamily, FontSize} from '../../../constants/style';
-
+import {useSelector} from 'react-redux';
 import CustomButton from '../../../components/CustomButton';
 import {wp} from '../../../utils/utils';
 import DropdownWithIcons from '../../../components/DropdownWithIcons';
+import Localization from '../../../constants/localization';
 
 const OrgSignup = ({navigation}) => {
+  const {lang} = useSelector(state => state.language);
   const [inputValueName, setInputValueName] = useState('');
   const [inputValueEmail, setInputValueEmail] = useState('');
   const [inputValueCvr, setInputValueCvr] = useState('');
@@ -17,22 +18,22 @@ const OrgSignup = ({navigation}) => {
 
   return (
     <AuthLayout
-      text1={'Hello!'}
-      text2={'Create Your'}
-      text3={'Account'}
+    text1={Localization.hello[lang]}
+    text2={Localization.create[lang]}
+    text3={Localization.account[lang]}
       CustomStyle={styles.CustomStyle}
       // bottomtext={'Already have an account?'}
       // bottomTextPressable={'Sign In'}
       // mainButtonText={"Sign Up"}
     >
       <CustomTextInput
-        placeholder="Company Name"
+        placeholder={Localization.company_name[lang]}
         imageSource={require('../../../assets/icons/name.png')}
         value={inputValueName}
         onChangeText={setInputValueName}
       />
         <CustomTextInput
-        placeholder="CVR No."
+        placeholder={Localization.cvr_no[lang]}
         imageSource={require('../../../assets/icons/cvr.png')}
         value={inputValueCvr}
         onChangeText={setInputValueCvr}
@@ -40,7 +41,7 @@ const OrgSignup = ({navigation}) => {
       <DropdownWithIcons />
 
       <CustomTextInput
-        placeholder="Email"
+        placeholder={Localization.email[lang]}
         imageSource={require('../../../assets/icons/mailicon.png')}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
@@ -49,7 +50,7 @@ const OrgSignup = ({navigation}) => {
  
 
       <CustomTextInput
-        placeholder="Password"
+        placeholder={Localization.password[lang]}
         imageSource={require('../../../assets/icons/password.png')}
         value={inputValuePassword}
         onChangeText={setInputValuePassword}
@@ -57,7 +58,7 @@ const OrgSignup = ({navigation}) => {
       />
 
       <CustomButton
-        title="Sign Up"
+        title={Localization.signup[lang]}
         style={{width: wp(90)}}
         onPress={() => {
           navigation.navigate('OtpVerificationCompany');
@@ -69,7 +70,7 @@ const OrgSignup = ({navigation}) => {
             color: Color.inputText,
             paddingTop: wp(4),
           }}>
-          Already have an account?{' '}
+         {Localization.already_account[lang]}{' '}
         </Text>
         <Pressable onPress={() => navigation.goBack()}>
           <Text
@@ -80,7 +81,7 @@ const OrgSignup = ({navigation}) => {
               fontFamily: FontFamily.robotoBold,
             }}>
             {/* Sign In */}
-            Sign In
+            {Localization.signin[lang]}
           </Text>
           <View></View>
         </Pressable>

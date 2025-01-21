@@ -1,53 +1,64 @@
 import {StyleSheet, Text, TouchableOpacity, View, Image} from 'react-native';
 import UpdateProfileLayout from '../../../layout/UpdateProfileLayout';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import CustomButton from '../../../components/CustomButton';
 import {Color, FontFamily, FontSize} from '../../../constants/style';
 import {wp} from '../../../utils/utils';
 import PopUp from '../../../modals/PopUp';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeLanguage } from '../../../redux/languageSlice';
 const EmpSetLanguage = () => {
-  const radioButtons = [
+  const Languages = [
     {
-      id: '1',
+      value: 'da',
       label: 'Danish',
-      value: 'danish',
       image: require('../../../assets//icons/flags/Denmark.png'),
     },
     {
-      id: '2',
+      value:'en',
       label: 'English',
-      value: 'english',
       image: require('../../../assets//icons/flags/UK.png'),
     },
   ];
+  const {lang} = useSelector((state)=>state.language)
+ console.log("lllllanguage",lang)
  const [sendVisible,SetSendVisible]=useState(false)
-  const [selectedId, setSelectedId] = useState('2');
+  const [selectedLang, setSelectedLang] = useState(lang);
+const dispatch =useDispatch()
+
+const handleLanguageChange = (Lang) => {
+  console.log("Function", Lang);
+  dispatch(changeLanguage(Lang)) 
+  SetSendVisible(true)
+  
+};
+
   return (
     <UpdateProfileLayout
       heading={'Language'}
       subHeading={'Change Language'}
       notify>
       <View style={styles.container}>
-        {radioButtons.map(item => (
+        {Languages.map(item => (
           <TouchableOpacity
-            key={item.id}
+            key={item.value}
             style={styles.radioContainer}
-            onPress={() => setSelectedId(item.id)}>
+            onPress={() => setSelectedLang(item.value)}>
             <Image source={item.image} style={styles.flag} />
             <Text style={styles.label}>{item.label}</Text>
             <View
               style={[
                 styles.radioButton,
-                selectedId === item.id && styles.radioButtonSelected,
+                selectedLang === item.value && styles.radioButtonSelected,
               ]}>
-              {selectedId === item.id && <View style={styles.innerCircle} />}
+              {selectedLang === item.value && <View style={styles.innerCircle} />}
             </View>
           </TouchableOpacity>
         ))}
         <CustomButton
           title={'Update Language'}
           style={{marginBottom: wp(5), marginTop: wp(3)}}
-          onPress={()=>{SetSendVisible(true)}}
+          onPress={()=>{handleLanguageChange(selectedLang)}}
         />
            
  <PopUp 
@@ -57,6 +68,7 @@ const EmpSetLanguage = () => {
        mainHeading={'Updated Successfully'}
        description={'Your Language has been updated '}
        status={'successfully'}
+       btnTitle={"Done"}
        />
       </View>
     </UpdateProfileLayout>

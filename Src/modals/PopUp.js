@@ -110,7 +110,10 @@ const Popup = ({
   mainHeading,
   description,
   status,
-  delLogin
+  delLogin,
+  btnTitle,
+  delYestitle,
+  delNotitle
 }) => {
   return (
     <Modal visible={visible} transparent={true} onRequestClose={handleClose}>
@@ -129,12 +132,12 @@ const Popup = ({
          {delLogin ? (
   <View style={{flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
     <CustomButton
-      title="Yes"
+      title={delYestitle}
       onPress={handleClose}
       style={{width: wp(30), marginBottom: wp(7)}}
     />
     <CustomButton
-      title="No"
+      title={delNotitle}
       onPress={handleClose}
       style={{
         width: wp(30),
@@ -149,7 +152,7 @@ const Popup = ({
   </View>
 ) : (
   <CustomButton
-    title="Done"
+    title={btnTitle}
     onPress={handleClose}
     style={{width: wp(70), marginBottom: wp(7)}}
   />

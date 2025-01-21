@@ -11,6 +11,8 @@ import {hp, wp} from '../utils/utils';
 import Company from 'react-native-vector-icons/Octicons';
 import Employee from 'react-native-vector-icons/FontAwesome';
 import {Color, FontFamily, FontSize} from '../constants/style';
+import Localization from '../constants/localization';
+import {useSelector} from 'react-redux';
 
 const RegisterOption = ({navigation}) => {
   useLayoutEffect(() => {
@@ -22,6 +24,7 @@ const RegisterOption = ({navigation}) => {
     StatusBar.setHidden(false);
     StatusBar.setBarStyle('light-content');
   }, []);
+  const {lang} = useSelector(state => state.language);
   return (
     <View style={styles.container}>
       <Image
@@ -29,9 +32,9 @@ const RegisterOption = ({navigation}) => {
         style={styles.backgroundImage}
       />
       <View style={styles.ContentContainer}>
-        <Text style={styles.heading}>Register</Text>
+        <Text style={styles.heading}>{Localization.register[lang]}</Text>
         <Text style={styles.txt}>
-          Register yourself as a company or employee
+          {Localization.register_option_body[lang]}
         </Text>
         <View style={styles.line} />
 
@@ -46,9 +49,13 @@ const RegisterOption = ({navigation}) => {
                 style={styles.card1icon}
               />
             </View>
-            <Text style={styles.cardLines}>Company</Text>
+            <Text style={styles.cardLines}>
+              {Localization.company[lang]}
+            </Text>
           </Pressable>
-          <Pressable style={styles.card1}  onPress={() => navigation.navigate('EmployeeAuth')}>
+          <Pressable
+            style={styles.card1}
+            onPress={() => navigation.navigate('EmployeeAuth')}>
             <View style={styles.Icon2Container}>
               {/* <Employee name = 'user-o' size={30} style={styles.card1icon} /> */}
               <Image
@@ -56,7 +63,9 @@ const RegisterOption = ({navigation}) => {
                 style={styles.card1icon}
               />
             </View>
-            <Text style={styles.cardLines}>Employee</Text>
+            <Text style={styles.cardLines}>
+            {Localization.employee[lang]}
+              </Text>
           </Pressable>
         </View>
       </View>

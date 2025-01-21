@@ -42,6 +42,7 @@ const EmpUpdateprofile = () => {
        mainHeading={'Updated Successfully'}
        description={'Your Profile has been updated '}
        status={'successfully'}
+       btnTitle={"Done"}
        />
     </UpdateProfileLayout>
   );

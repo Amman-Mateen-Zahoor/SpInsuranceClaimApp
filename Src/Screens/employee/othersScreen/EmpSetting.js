@@ -114,6 +114,8 @@ renderRightIcon ={
   iconSource={require('../../../assets/icons/LogoutC.png')}
   mainHeading={'Log Out'}
   description={'Are you sure you want to log out?'}
+  delYestitle={'Yes'}
+  delNotitle={'No'}
   />
 <Popup
  delLogin
@@ -123,6 +125,8 @@ renderRightIcon ={
   mainHeading={'Delete account'}
   description={'Are you sure you want to delete your'}
   status={'account?'}
+  delYestitle={'Yes'}
+  delNotitle={'No'}
   />
   
   

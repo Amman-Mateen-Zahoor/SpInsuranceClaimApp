@@ -12,11 +12,13 @@ import {
 } from 'react-native-confirmation-code-field';
 import CustomButton from '../../components/CustomButton';
 import { wp } from '../../utils/utils';
-
+import {useSelector} from 'react-redux';
+import Localization from '../../constants/localization';
 
 const CELL_COUNT = 4;
 
 const OtpVerification = ({from}) => {
+    const {lang} = useSelector(state => state.language);
   const [timer, setTimer] = useState(120);
   const [value, setValue] = useState('');
   const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
@@ -57,9 +59,9 @@ const[disble,setDisable]=useState(true)
   }
   return (
     <AuthLayout
-      text1={'OTP'}
-      text2={'Verification'}
-      text3={'Verification code send via email'}>
+      text1={Localization.otp[lang]}
+      text2={Localization.verification[lang]}
+      text3={Localization.verfication_code_sent_email[lang]}>
       <View>
         <CodeField
         
@@ -90,7 +92,7 @@ const[disble,setDisable]=useState(true)
         />
         <View>
           <Text style={{alignSelf: 'center', color: 'red', marginTop:wp(5)}}>{renderTimer()}s</Text>
-          <CustomButton title="Submit" style={{width: wp(90)}} onPress={setSubmitClick} />
+          <CustomButton title={Localization.submit[lang]} style={{width: wp(90)}} onPress={setSubmitClick} />
           <View
             style={{
               flexDirection: 'row',
@@ -102,13 +104,13 @@ const[disble,setDisable]=useState(true)
                 color: Color.inputText,
                 paddingTop: wp(3),
               }}>
-              Did'nt get code?{' '}
+              {Localization.did_not_get_code[lang]}{' '}
             </Text>
             <TouchableOpacity disabled={disble} onPress={startInterval}> 
               <Text
                 style={[styles.resendBtnTxt,disble&&styles.disablBtnTxt]}>
                 {/* Sign In */}
-                Resend
+                {Localization.resend[lang]}
               </Text>
               <View></View>
               </TouchableOpacity>

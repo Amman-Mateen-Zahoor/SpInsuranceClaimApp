@@ -13,9 +13,12 @@ import {hp, wp} from '../utils/utils';
 import ArrowRight from 'react-native-vector-icons/Feather';
 import { Color, FontFamily, FontSize } from '../constants/style';
 import CustomButton from '../components/CustomButton';
+import Localization from '../constants/localization';
+import { useSelector } from 'react-redux';
  
 const GetStarted = ({navigation}) => {
- 
+ const {lang} = useSelector((state)=>state.language)
+ console.log("lllllanguage",lang)
   return (
     <View style={styles.container}>
       <Image
@@ -29,13 +32,11 @@ const GetStarted = ({navigation}) => {
       <View style={styles.bottomContainer}>
         <View style={styles.bottomHeadingContainer}>
           <Text style={styles.heading}>
-            {' '}
-            Welcome to Söderberg {'\n'}& Partners
+        {Localization.get_started_heading[lang]}     
+              
           </Text>
           <Text style={styles.para}>
-            Our goal is to offer advice and products that keep our customers one
-            step ahead, with cost-effective solutions that help them manage
-            risks effectively.
+          {Localization.get_started_body[lang]}
           </Text>
           <View style={styles.linesContainer}>
             <View style={[styles.line, styles.focusedLine]} />
@@ -56,7 +57,7 @@ const GetStarted = ({navigation}) => {
             </TouchableOpacity> */}
 
             <CustomButton 
-            title="Get Started"
+            title={Localization.get_started[lang]}
             iconName={"arrow-right-long"}
             onPress={()=>{
               navigation.navigate('registration')
@@ -65,9 +66,9 @@ const GetStarted = ({navigation}) => {
             />
 
             <Text style={styles.bottomTxt} >
-            By continuing, you agree to our 
-            <Text style={styles.privacy}> Privacy {'\n'} Policy</Text>
-            <Text style={styles.privacy}> Terms & Conditions. </Text>
+            {Localization.by_continuing_agree[lang]}
+            <Text style={styles.privacy}> {Localization.privacy_n_policy[lang]}</Text>
+            <Text style={styles.privacy}> {Localization.term_conditions[lang]} </Text>
             </Text>
         </View>
       </View>

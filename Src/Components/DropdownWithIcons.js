@@ -245,7 +245,7 @@ const DropdownWithIcons = () => {
         style={styles.dropdown}
         iconColor="black"
         containerStyle={styles.listContainer}
-        data={filteredData} // Use filtered data here
+        data={filteredData} // Use filtered data here```
         value={selectedItem}
         onChange={item => {
           setSelectedItem(item);

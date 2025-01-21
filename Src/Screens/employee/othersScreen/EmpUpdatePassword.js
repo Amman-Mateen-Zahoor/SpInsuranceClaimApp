@@ -40,6 +40,7 @@ const EmpUpdatePassword = () => {
        mainHeading={'Updated Successfully'}
        description={'Your Password has been updated '}
        status={'successfully'}
+       btnTitle={"Done"}
        />
    </UpdateProfileLayout>
   )

@@ -6,27 +6,29 @@ import {Color, FontFamily, FontSize} from '../../constants/style';
 import {hp, wp} from '../../utils/utils';
 import CustomButton from '../../components/CustomButton';
 import { useNavigation } from '@react-navigation/native';
+import Localization from '../../constants/localization';
+import { useSelector } from 'react-redux';
 
 const Login = ({from}) => {
   const [inputValueEmail, setInputValueEmail] = useState('');
   const [inputValuePassword, setInputValuePassword] = useState('');
   const navigation=useNavigation()
-                             
+  const {lang} = useSelector(state => state.language);                           
 
      
   return (
     <AuthLayout
-      text1={'Hello!'}
-      text2={'Log In'}
-      text3={'Please login to continue'} >
+      text1={Localization.hello[lang]}
+      text2={Localization.login[lang]}
+      text3={Localization.please_login[lang]} >
       <CustomTextInput
-        placeholder="Email"
+        placeholder={Localization.email[lang]}
         imageSource={require('../../assets/icons/mailicon.png')}
         value={inputValueEmail}
         onChangeText={setInputValueEmail}
       />
       <CustomTextInput
-        placeholder="Password"
+        placeholder={Localization.password[lang]}
         imageSource={require('../../assets/icons/password.png')}
         value={inputValuePassword}
         onChangeText={setInputValuePassword}
@@ -38,23 +40,23 @@ const Login = ({from}) => {
          navigation.navigate('ForgetPasswordEmployee')
          :navigation.navigate('ForgetPasswordCompany')
        }}>
-        <Text style={styles.text}>Forget Password?</Text>
+        <Text style={styles.text}>{Localization.forget_password[lang]}</Text>
       </Pressable>
       <View style={styles.lineContainer}>
         <View style={styles.line}></View>
-        <Text style={{color: Color.inputText}}>or</Text>
+        <Text style={{color: Color.inputText}}>{Localization.or[lang]}</Text>
         <View style={styles.line2}></View>
       </View>
       
       <Text style={{color: Color.inputText, paddingTop: wp(5),paddingBottom:wp(6),alignSelf:'center' }}>
-        Log in with face ID
+      {Localization.login_with_face_id[lang]}
       </Text>
       <Pressable onPress={()=>{console.log('first')}}>
       <Image source={require('../../assets/icons/face-id.png')}
       style={styles.image}
       ></Image></Pressable>
       
-        <CustomButton title="Log In" onPress={()=>{
+        <CustomButton title={Localization.login[lang]} onPress={()=>{
        
        from ==="employee" ?
          navigation.navigate('EmployeeStack')
@@ -67,7 +69,7 @@ const Login = ({from}) => {
              paddingTop: wp(4)
             
           }}>
-          Did'nt have an account?{' '}
+         {Localization.did_not_have_account[lang]}{' '}
         </Text>
         <Pressable onPress={()=>{
        
@@ -85,7 +87,7 @@ const Login = ({from}) => {
               fontFamily: FontFamily.robotoBold,
             }}>
             {/* Sign In */}
-            Sign Up
+            {Localization.signup[lang]}
           </Text>
           <View></View>
         </Pressable>
@@ -102,10 +104,9 @@ const styles = StyleSheet.create({
     color: Color.darkBlue,
     fontFamily: FontFamily.robotoRegular,
     fontSize: FontSize.m,
-    // paddingLeft:wp(50),
-    marginLeft: wp(57),
     paddingTop: wp(3),
-    fontWeight: '699',
+    alignSelf:'flex-end'
+    
   },
   lineContainer: {
     flexDirection: 'row',
