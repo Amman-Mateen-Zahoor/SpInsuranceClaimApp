@@ -19,11 +19,14 @@ import EmpFile from '../screens/employee/othersScreen/EmpFile';
 import Camera from '../screens/Camera';
 import EmpProfile from '../screens/employee/othersScreen/EmpProfile';
 import EmpSetting from '../screens/employee/othersScreen/EmpSetting';
+import { useSelector } from 'react-redux';
+import Localization from '../constants/localization';
 
 const Tab = createBottomTabNavigator();
 const EmpBottomTab = () => {
   const {bottom} = useSafeAreaInsets();
   const [keyboardVisible, setKeyboardVisible] = useState(false);
+  const {lang} = useSelector(state=>state.language)
   useEffect(() => {
     const showListener = Keyboard.addListener("keyboardDidShow", () => setKeyboardVisible(true));
     const hideListener = Keyboard.addListener("keyboardDidHide", () => setKeyboardVisible(false));
@@ -60,7 +63,7 @@ const EmpBottomTab = () => {
             );
           },
         }}
-        name="Home"
+        name={Localization.home[lang]}
         component={EmpHome}
       />
       <Tab.Screen
@@ -78,7 +81,7 @@ const EmpBottomTab = () => {
             );
           },
         }}
-        name="Files"
+        name={Localization.files[lang]}
         component={EmpFile}
       />
       <Tab.Screen
@@ -115,7 +118,7 @@ const EmpBottomTab = () => {
             );
           },
         }}
-        name="Profile"
+        name={Localization.profile[lang]}
         component={EmpProfile}
       />
       <Tab.Screen
@@ -133,7 +136,7 @@ const EmpBottomTab = () => {
             );
           },
         }}
-        name="Setting"
+        name={Localization.settings[lang]}
         component={EmpSetting}
       />
     </Tab.Navigator>

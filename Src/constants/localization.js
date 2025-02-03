@@ -284,8 +284,8 @@ const Localization = {
         en: 'Face ID'
     },
     enable: {
-        da: 'Aktiver',
-        en: 'Enable'
+        da: 'Aktiver/Deaktiver',
+        en: 'Enable/Disable'
     },
     disable: {
         da: 'Deaktiver',
@@ -390,6 +390,10 @@ const Localization = {
     updated_successfully: {
         da: 'Opdateret succesfuldt',
         en: 'Updated Successfully'
+    },
+    Your_Profile_has_been_updated: {
+        da: 'Din profil er blevet opdateret',
+        en: 'Your Profile has been updated'
     },
     password_update_success: {
         da: 'Din adgangskode er nu ',
@@ -797,5 +801,13 @@ const Localization = {
         en: "Required",
         da: "Påkrævet"
     },
+    camera_not_authorized:{
+        en: "Camera not authorized",
+        da: "Kamera ikke godkendt"
+    },
+    go_to_Settings:{
+        en:"Go to Settings",
+        da:"Gå til Indstillinger"
+    }
 }
 export default Localization

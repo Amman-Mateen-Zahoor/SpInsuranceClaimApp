@@ -9,8 +9,11 @@ import {
   TextStyles,
 } from '../../../constants/style';
 import FileReport from '../../../components/FileReport';
+import { useSelector } from 'react-redux';
+import Localization from '../../../constants/localization';
 
 const EmpFile = () => {
+ const {lang} =useSelector(state=>state.language)
   const [report, setReport] = useState([
     {date: 'May 25,2023', type: 'Vehicle'},
     {date:'May 25,2023',type:'Vehicle'},
@@ -25,17 +28,18 @@ const EmpFile = () => {
     {date:'May 25,2023',type:'Vehicle'},
   ]);
   return (
-    <CommonLayout heading={'Files'} disablScrollView>
+    <CommonLayout heading={Localization.files[lang]} disablScrollView>
         <View style={styles.container1}>
-          <Text style={styles.Heading1}>Damage Reports</Text>
+          <Text style={styles.Heading1}>{Localization.damage_reports[lang]}</Text>
           <Pressable style={styles.btnTop}>
-            <Text style={styles.btnTopTxt}>Make Claim</Text>
+            <Text style={styles.btnTopTxt}>{Localization.make_claim[lang]}</Text>
           </Pressable>
         </View>
         <FlatList
           data={report}
           contentContainerStyle={{paddingHorizontal:wp(5),paddingBottom:wp(10)}}
-          renderItem={FileReport}
+          renderItem={({item})=><FileReport item={item} />}
+
         />
     </CommonLayout>
   );

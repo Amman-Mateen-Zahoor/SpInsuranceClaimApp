@@ -174,12 +174,14 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Color} from '../constants/style';
 import {useNavigation} from '@react-navigation/native';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
+import { useSelector } from 'react-redux';
+import Localization from '../constants/localization';
 
 const Camera = () => {
   useLayoutEffect(() => {
     StatusBar.setHidden(true);
   }, []);
-
+ const {lang} =useSelector(state=>state.language)
   const [photoSelected, setPhotoSelected] = useState(true);
   const [video, setVideo] = useState(false);
   const [click, setClick] = useState(false);
@@ -218,11 +220,11 @@ const Camera = () => {
   if (!hasPermission) {
     return (
       <View style={styles.container}>
-        <Text style={styles.permissionText}>Camera not authorized</Text>
+        <Text style={styles.permissionText}>{Localization.camera_not_authorized[lang]}</Text>
         <TouchableOpacity
           onPress={() => Linking.openSettings()}
           style={styles.button}>
-          <Text style={styles.buttonText}>Go to Settings</Text>
+          <Text style={styles.buttonText}>{Localization.go_to_Settings[lang]}</Text>
         </TouchableOpacity>
       </View>
     );

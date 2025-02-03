@@ -7,12 +7,15 @@ import ProfileEntity from '../../../components/ProfileEntity'
 import CustomButton from '../../../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
 import EmpUpdateprofile from './EmpUpdateprofile'
+import { useSelector } from 'react-redux'
+import Localization from '../../../constants/localization'
 
 const EmpProfile = () => {
+    const {lang} = useSelector(state=>state.language)
     const  navigation = useNavigation()
   return (
   <CommonLayout
-  heading={"Profile"}
+  heading={Localization.profile[lang]}
   >
  <Image
  source={require('../../../assets/images/headerP.jpg')}
@@ -21,23 +24,23 @@ const EmpProfile = () => {
 <Text style={styles.text}>William Karlsson</Text>
 <View style={styles.container}>
     <ProfileEntity
-    text1={"Phone No."}
+    text1={Localization.phone_no[lang]}
     text2={"+92 222 0022002"}
     />
     <ProfileEntity
-    text1={"Email"}
+    text1={Localization.email[lang]}
     text2={"williamkarlsson@gmail.com"}
     />
     <ProfileEntity
-    text1={"Company Name"}
+    text1={Localization.company_name[lang]}
     text2={"Cubix Solutions"}
     />
     <ProfileEntity
     style={{marginBottom:0}}
-    text1={"CVR No."}
+    text1={Localization.cvr_no[lang]}
     text2={"20700211"}
     />
-    <CustomButton title={"Edit"} onPress={()=>{navigation.navigate('EmpUpdateProfile')}} />
+    <CustomButton title={Localization.edit[lang]} onPress={()=>{navigation.navigate('EmpUpdateProfile')}} />
 </View>
   </CommonLayout>
   )

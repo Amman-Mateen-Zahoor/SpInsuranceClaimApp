@@ -2,9 +2,13 @@ import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { wp } from '../utils/utils';
 import { Color, FontFamily, FontSize } from '../constants/style';
+import { useSelector } from 'react-redux';
+import Localization from '../constants/localization';
 
-const FileReport = ({item}) => 
-    (
+const FileReport = ({item}) => {
+  // const {lang} = useSelector(state=>state.language)
+  const {lang} = useSelector(state => state.language);                           
+  return  (
      <View style={styles.container2}>
        <View style={styles.container2icon}>
          <Image
@@ -17,12 +21,12 @@ const FileReport = ({item}) =>
        <View style={styles.textmaincontainer}>
          {/* TextTop */}
          <View style={styles.textcontainer}>
-           <Text style={styles.toptxtLft}>Claim Date:</Text>
+           <Text style={styles.toptxtLft}>{Localization.claim_date[lang]}</Text>
            <Text style={styles.toptxtrgt}>{item.date}</Text>
          </View>
          {/* textbottom */}
          <View style={[styles.textcontainer,{marginTop:wp(1)}]}>
-           <Text style={styles.toptxtLft}>Damage Type:</Text>
+           <Text style={styles.toptxtLft}>{Localization.damage_type[lang]}</Text>
            <Text style={styles.toptxtrgt}>{item.type}</Text>
          </View>
        </View>
@@ -31,11 +35,12 @@ const FileReport = ({item}) =>
          style={styles.containerbtn}>
          <Text
            style={styles.containerbtntxt}>
-           Report.pdf
+           {Localization.report_pdf[lang]}
          </Text>
        </Pressable>
      </View>
    )
+  }
 
 export default FileReport
 

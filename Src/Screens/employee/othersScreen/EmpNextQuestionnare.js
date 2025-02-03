@@ -5,20 +5,23 @@ import { Color, FontFamily, FontSize } from '../../../constants/style'
 import { wp } from '../../../utils/utils'
 import CustomButton from '../../../components/CustomButton'
 import PopUp from '../../../modals/PopUp'
+import { useSelector } from 'react-redux'
+import Localization from '../../../constants/localization'
 
 const EmpNextQuestionnare = () => {
 const [sendVisible,SetSendVisible]=useState(false)
+const {lang} =useSelector(state=>state.language)
   return (
    <CommonLayout
-   heading={'Questionnare'}
+   heading={Localization.questionnaire[lang]}
    >
-  <Text style={styles.heading}>Upload Picture Of The Damage </Text>
+  <Text style={styles.heading}>{Localization.upload_pictures_damage[lang]} </Text>
   <Pressable style={styles.content}>
     <Image
     source={require('../../../assets/icons/upload.png')}
     style={styles.Img}
     />
-  <Text style={styles.txt}>Attach Media Here </Text>
+  <Text style={styles.txt}>{Localization.attach_media[lang]} </Text>
 
   </Pressable>
    <Pressable style={styles.btnContainer} onPress={()=>(console.log("first"))}>
@@ -26,19 +29,20 @@ const [sendVisible,SetSendVisible]=useState(false)
                  source={require('../../../assets/icons/capture.png')}
                  style={styles.icon}
                />
-        <Text style={styles.btntext}>Capture{'  '}</Text>
+        <Text style={styles.btntext}>{Localization.capture[lang]}{'  '}</Text>
       </Pressable>
   <CustomButton
-  title={'Submit Damage Report'}
+  title={Localization.submit_damage_report[lang]}
   style={{marginTop:wp(7)}}
   onPress={()=>{SetSendVisible(true)}}
   />
   <PopUp visible={sendVisible}
        handleClose={()=>{SetSendVisible(false)}}
        iconSource={require('../../../assets/icons/check.png')}
-       mainHeading={'Submitted Successfully'}
-       description={'Your damage report has been  '}
-       status={'submitted successfully'}
+       mainHeading={Localization.submitted_successfully[lang]}
+       description={Localization.damage_report_submission_success[lang]}
+       status={Localization.submitted_successfully[lang]}
+       btnTitle={Localization.done[lang]}
        />
    </CommonLayout>
   )

@@ -3,12 +3,15 @@ import React from 'react'
 import UpdateProfileLayout from '../../../layout/UpdateProfileLayout'
 import CustomTextInput from '../../../components/CustomTextInput'
 import { wp } from '../../../utils/utils'
+import { useSelector } from 'react-redux'
+import Localization from '../../../constants/localization'
 
 const EmpContactUs = () => {
+  const {lang} =useSelector(state=>state.language)
   return (
 <UpdateProfileLayout 
-heading={'Contact Us'}
-subHeading={'Get In Touch'}
+heading={Localization.contact_us[lang]}
+subHeading={Localization.get_in_touch[lang]}
 notify
 settingStyle={{marginBottom:wp(5)}}
 >

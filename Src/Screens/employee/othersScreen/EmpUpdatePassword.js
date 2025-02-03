@@ -5,42 +5,46 @@ import CustomTextInput from '../../../components/CustomTextInput'
 import CustomButton from '../../../components/CustomButton'
 import { wp } from '../../../utils/utils'
 import PopUp from '../../../modals/PopUp'
+import { useSelector } from 'react-redux'
+import Localization from '../../../constants/localization'
+import Popup from '../../../modals/PopUp'
 
 const EmpUpdatePassword = () => {
           const [sendVisible,SetSendVisible]=useState(false)
+          const {lang} =useSelector(state=>state.language)
   return (
    <UpdateProfileLayout
-   heading={'Password'}
-   subHeading={'Change Password'}
+   heading={Localization.password[lang]}
+   subHeading={Localization.change_password[lang]}
    notify
    >
 <CustomTextInput
-        placeholder="Current Password"
+        placeholder={Localization.current_password[lang]}
         imageSource={require('../../../assets/icons/password.png')}
         secureTextEntry={true} // Enable password toggle
       />
       <CustomTextInput
-        placeholder="New Password"
+        placeholder={Localization.new_password[lang]}
         imageSource={require('../../../assets/icons/password.png')}
         secureTextEntry={true} // Enable password toggle
       />
       <CustomTextInput
-      placeholder="Confirm Password"
+      placeholder={Localization.confirm_password[lang]}
       imageSource={require('../../../assets/icons/password.png')}
       secureTextEntry={true} // Enable password toggle
     />
     <CustomButton 
-    title={"Update Profile"}
+    title={Localization.update_password[lang]}
     style={{marginBottom:wp(5)}}
     onPress={()=>{SetSendVisible(true)}}
     />
- <PopUp visible={sendVisible}
+ <Popup visible={sendVisible}
        handleClose={()=>{SetSendVisible(false)}}
        iconSource={require('../../../assets/icons/check.png')}
-       mainHeading={'Updated Successfully'}
-       description={'Your Password has been updated '}
-       status={'successfully'}
-       btnTitle={"Done"}
+       mainHeading={Localization.updated_successfully[lang]}
+       description={Localization.password_update_success[lang]}
+       status={Localization.successfully[lang]}
+       btnTitle={Localization.done[lang]}
        />
    </UpdateProfileLayout>
   )

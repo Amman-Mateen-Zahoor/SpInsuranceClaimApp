@@ -6,6 +6,8 @@ import { Color, FontFamily, FontSize } from '../../../constants/style'
 import ToggleSwitch from 'toggle-switch-react-native'
 import { useNavigation } from '@react-navigation/native'
 import Popup from '../../../modals/PopUp'
+import { useSelector } from 'react-redux'
+import Localization from '../../../constants/localization'
 const Item =({imgSourceleft,renderRightIcon,heading1,heading2,isToggle,onPress})=>{
  
   return(
@@ -29,17 +31,18 @@ const EmpSetting = () => {
   const navigation = useNavigation()
   const [sendVisibleLogout,SetSendVisibleLogout]=useState(false)
   const [sendVisibleDel,SetSendVisibleDel]=useState(false)
+  const {lang}=useSelector(state=>state.language)
   return (
  <UpdateProfileLayout
- heading={'Settings'}
- subHeading={'Change settings'}
- title={'General Settings'}
+ heading={Localization.settings[lang]}
+ subHeading={Localization.change_language[lang]}
+ title={Localization.general_settings[lang]}
 settingStyle={{ paddingVertical:wp(5)}}
  >  
  <Item
  isToggle
- heading1={'Face ID'}
- heading2={'Enable/Disable'}
+ heading1={Localization.face_id[lang]}
+ heading2={Localization.enable[lang]}
  imgSourceleft={require('../../../assets/icons/face-id.png')}
 renderRightIcon={<ToggleSwitch
   isOn={toggleSwitch}
@@ -53,8 +56,8 @@ renderRightIcon={<ToggleSwitch
  <Item
  onPress={()=>(navigation.navigate('EmpSetLanguage'))}
  imgSourceleft={require("../../../assets/icons/language.png")}
-  heading1={"Language"}
-  heading2={'Change Language'}
+  heading1={Localization.language[lang]}
+  heading2={Localization.change_language[lang]}
 renderRightIcon ={
   <Image
   source={require('../../../assets/icons/arrowright.png')}
@@ -64,8 +67,8 @@ renderRightIcon ={
    <Item
    onPress={()=>(navigation.navigate("EmpUpdatePassword"))}
  imgSourceleft={require("../../../assets/icons/lock.png")}
-  heading1={"Password"}
-  heading2={'Change Password'}
+  heading1={Localization.password[lang]}
+  heading2={Localization.change_password[lang]}
 renderRightIcon ={
   <Image
   source={require('../../../assets/icons/arrowright.png')}
@@ -73,21 +76,21 @@ renderRightIcon ={
   /> }
  />
  <Item
- heading1={"Privacy Policy"}
- heading2={"Read Privacy Policy"}
+ heading1={Localization.privacy_policy[lang]}
+ heading2={Localization.read_privacy_policy[lang]}
  imgSourceleft={require('../../../assets/icons/privacy-policy.png')}
  />
  <Item
- heading1={"Terms & Conditions"}
- heading2={"Read Terms & Conditions"}
+ heading1={Localization.term_conditions[lang]}
+ heading2={Localization.read_terms_conditions[lang]}
  imgSourceleft={require('../../../assets/icons/terms-and-conditions.png')}
  />
  
     <Item
  onPress={()=>(navigation.navigate('EmpContactUs'))}
  imgSourceleft={require("../../../assets/icons/contact-us.png")}
-  heading1={"Contact Us"}
-  heading2={'Get In Touch'}
+  heading1={Localization.contact_us[lang]}
+  heading2={Localization.get_in_touch[lang]}
 renderRightIcon ={
   <Image
   source={require('../../../assets/icons/arrowright.png')}
@@ -95,15 +98,15 @@ renderRightIcon ={
   /> }
  />
  <Item
- heading1={"Delete"}
- heading2={"Click to delete account"}
+ heading1={Localization.delete_account[lang]}
+ heading2={Localization.click_delete_account[lang]}
  imgSourceleft={require('../../../assets/icons/delete-account.png')}
  onPress={()=>{SetSendVisibleDel(true)}}
 
  />
  <Item
- heading1={"Log Out"}
- heading2={"Click To Log Out"}
+ heading1={Localization.log_out[lang]}
+ heading2={Localization.click_log_out[lang]}
  imgSourceleft={require('../../../assets/icons/logout.png')}
  onPress={()=>{SetSendVisibleLogout(true)}}
  />
@@ -112,21 +115,21 @@ renderRightIcon ={
  visible={sendVisibleLogout}
   handleClose={()=>{SetSendVisibleLogout(false)}}
   iconSource={require('../../../assets/icons/LogoutC.png')}
-  mainHeading={'Log Out'}
-  description={'Are you sure you want to log out?'}
-  delYestitle={'Yes'}
-  delNotitle={'No'}
+  mainHeading={Localization.log_out[lang]}
+  description={Localization.sure_log_out[lang]}
+  delYestitle={Localization.yes[lang]}
+  delNotitle={Localization.no[lang]}
   />
 <Popup
  delLogin
  visible={sendVisibleDel}
   handleClose={()=>{SetSendVisibleDel(false)}}
   iconSource={require('../../../assets/icons/trash.png')}
-  mainHeading={'Delete account'}
-  description={'Are you sure you want to delete your'}
-  status={'account?'}
-  delYestitle={'Yes'}
-  delNotitle={'No'}
+  mainHeading={Localization.delete_account[lang]}
+  description={Localization.sure_delete_account[lang]}
+  status={Localization.account[lang]}
+  delYestitle={Localization.yes[lang]}
+  delNotitle={Localization.no[lang]}
   />
   
   

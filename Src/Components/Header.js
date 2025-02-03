@@ -4,10 +4,13 @@ import {Color, FontFamily, FontSize} from '../constants/style';
 import {wp} from '../utils/utils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import { useNavigation } from '@react-navigation/native';
+import { useSelector } from 'react-redux';
+import Localization from '../constants/localization';
 
 const Header = ({heading,search}) => {
     const navigation =useNavigation()
   const {top} = useSafeAreaInsets();
+  const {lang}= useSelector(state=>state.language)
   return (
     <View style={styles.topContainer}>
       <Image
@@ -24,7 +27,7 @@ const Header = ({heading,search}) => {
           />
         </TouchableOpacity>
         <Text numberOfLines={1} style={[styles.txtheader,search&&styles.noNotify]} >
-        {search ? 'Notifications' : heading }
+        {search ? Localization.notifications[lang] : heading }
         </Text>
       { !search&&(
         <TouchableOpacity onPress={()=>(navigation.navigate('EmpNotify'))}>
@@ -38,7 +41,7 @@ const Header = ({heading,search}) => {
       { search && (
          <View style={styles.searchContainer}>
                  <TextInput
-                 placeholder='Search...'
+                 placeholder={Localization.search[lang]}
                  placeholderTextColor={Color.inputText}
                  style={{flex:1}}
                  />

@@ -5,13 +5,16 @@ import Questions from '../../../components/Questions'
 import { wp } from '../../../utils/utils'
 import CustomButton from '../../../components/CustomButton'
 import { useNavigation } from '@react-navigation/native'
+import { useSelector } from 'react-redux'
+import Localization from '../../../constants/localization'
 const ListItems =[{label:'Car'},{label:'Bike'}]
 
 const EmpQuestionnaire = () => {
   const navigation = useNavigation()
+  const {lang} = useSelector(state=>state.language)
   return (
    <CommonLayout
-   heading={"Questionnare"}
+   heading={Localization.questionnaire[lang]}
    >
   
   <Questions 
@@ -35,7 +38,7 @@ customDropdown/>
   placeholder={"Select Vehicle Type"}
   customDropdown/>
   <CustomButton
-   title={'Next'}
+   title={Localization.next[lang]}
    onPress={()=>(navigation.navigate('EmpNextQuestionnare'))}
   />
    </CommonLayout>

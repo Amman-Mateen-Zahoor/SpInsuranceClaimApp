@@ -7,6 +7,8 @@ import {wp} from '../../../utils/utils';
 import PopUp from '../../../modals/PopUp';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeLanguage } from '../../../redux/languageSlice';
+import Popup from '../../../modals/PopUp';
+import Localization from '../../../constants/localization';
 const EmpSetLanguage = () => {
   const Languages = [
     {
@@ -20,7 +22,7 @@ const EmpSetLanguage = () => {
       image: require('../../../assets//icons/flags/UK.png'),
     },
   ];
-  const {lang} = useSelector((state)=>state.language)
+  // const {lang} = useSelector((state)=>state.language)
  console.log("lllllanguage",lang)
  const [sendVisible,SetSendVisible]=useState(false)
   const [selectedLang, setSelectedLang] = useState(lang);
@@ -32,6 +34,8 @@ const handleLanguageChange = (Lang) => {
   SetSendVisible(true)
   
 };
+
+const {lang} =useSelector(state=>state.language)
 
   return (
     <UpdateProfileLayout
@@ -61,14 +65,13 @@ const handleLanguageChange = (Lang) => {
           onPress={()=>{handleLanguageChange(selectedLang)}}
         />
            
- <PopUp 
-       visible={sendVisible}
+           <Popup visible={sendVisible}
        handleClose={()=>{SetSendVisible(false)}}
        iconSource={require('../../../assets/icons/check.png')}
-       mainHeading={'Updated Successfully'}
-       description={'Your Language has been updated '}
-       status={'successfully'}
-       btnTitle={"Done"}
+       mainHeading={Localization.updated_successfully[lang]}
+       description={Localization.password_update_success[lang]}
+       status={Localization.successfully[lang]}
+       btnTitle={Localization.done[lang]}
        />
       </View>
     </UpdateProfileLayout>
