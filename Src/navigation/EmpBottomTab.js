@@ -8,17 +8,17 @@ import {
 } from 'react-native';
 import React, {lazy, useEffect, useState} from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import EmpHome from '../screens/employee/othersScreen/EmpHome';
+import EmpHome from '../screens/employee/bottomScreens/EmpHome';
 import {wp} from '../utils/utils';
 import {Color, FontSize} from '../constants/style';
 import {
   SafeAreaInsetsContext,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
-import EmpFile from '../screens/employee/othersScreen/EmpFile';
+import EmpFile from '../screens/employee/bottomScreens/EmpFile';
 import Camera from '../screens/Camera';
-import EmpProfile from '../screens/employee/othersScreen/EmpProfile';
-import EmpSetting from '../screens/employee/othersScreen/EmpSetting';
+import EmpProfile from '../screens/employee/bottomScreens/EmpProfile';
+import EmpSetting from '../screens/employee/bottomScreens/EmpSetting';
 import { useSelector } from 'react-redux';
 import Localization from '../constants/localization';
 

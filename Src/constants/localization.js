@@ -232,8 +232,8 @@ const Localization = {
         en: 'Claim date'
     },
     damage_type: {
-        da: 'Skadetype',
-        en: 'Damage type'
+        da: 'Skadetype:',
+        en: 'Damage type:'
     },
     report_pdf: {
         da: 'Rapport.pdf',

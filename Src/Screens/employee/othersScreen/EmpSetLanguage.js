@@ -4,12 +4,12 @@ import React, {useEffect, useState} from 'react';
 import CustomButton from '../../../components/CustomButton';
 import {Color, FontFamily, FontSize} from '../../../constants/style';
 import {wp} from '../../../utils/utils';
-import PopUp from '../../../modals/PopUp';
-import { useDispatch, useSelector } from 'react-redux';
-import { changeLanguage } from '../../../redux/languageSlice';
+import {useDispatch, useSelector} from 'react-redux';
+import {changeLanguage} from '../../../redux/languageSlice';
 import Popup from '../../../modals/PopUp';
 import Localization from '../../../constants/localization';
 const EmpSetLanguage = () => {
+  const {lang} = useSelector(state => state.language);
   const Languages = [
     {
       value: 'da',
@@ -17,26 +17,19 @@ const EmpSetLanguage = () => {
       image: require('../../../assets//icons/flags/Denmark.png'),
     },
     {
-      value:'en',
+      value: 'en',
       label: 'English',
       image: require('../../../assets//icons/flags/UK.png'),
     },
   ];
-  // const {lang} = useSelector((state)=>state.language)
- console.log("lllllanguage",lang)
- const [sendVisible,SetSendVisible]=useState(false)
+  const [sendVisible, SetSendVisible] = useState(false);
   const [selectedLang, setSelectedLang] = useState(lang);
-const dispatch =useDispatch()
-
-const handleLanguageChange = (Lang) => {
-  console.log("Function", Lang);
-  dispatch(changeLanguage(Lang)) 
-  SetSendVisible(true)
-  
-};
-
-const {lang} =useSelector(state=>state.language)
-
+  const dispatch = useDispatch();
+  const handleLanguageChange = Lang => {
+    console.log('Function', Lang);
+    dispatch(changeLanguage(Lang));
+    SetSendVisible(true);
+  };
   return (
     <UpdateProfileLayout
       heading={'Language'}
@@ -55,31 +48,36 @@ const {lang} =useSelector(state=>state.language)
                 styles.radioButton,
                 selectedLang === item.value && styles.radioButtonSelected,
               ]}>
-              {selectedLang === item.value && <View style={styles.innerCircle} />}
+              {selectedLang === item.value && (
+                <View style={styles.innerCircle} />
+              )}
             </View>
           </TouchableOpacity>
         ))}
         <CustomButton
           title={'Update Language'}
           style={{marginBottom: wp(5), marginTop: wp(3)}}
-          onPress={()=>{handleLanguageChange(selectedLang)}}
+          onPress={() => {
+            handleLanguageChange(selectedLang);
+          }}
         />
-           
-           <Popup visible={sendVisible}
-       handleClose={()=>{SetSendVisible(false)}}
-       iconSource={require('../../../assets/icons/check.png')}
-       mainHeading={Localization.updated_successfully[lang]}
-       description={Localization.password_update_success[lang]}
-       status={Localization.successfully[lang]}
-       btnTitle={Localization.done[lang]}
-       />
+
+        <Popup
+          visible={sendVisible}
+          handleClose={() => {
+            SetSendVisible(false);
+          }}
+          iconSource={require('../../../assets/icons/check.png')}
+          mainHeading={Localization.updated_successfully[lang]}
+          description={Localization.password_update_success[lang]}
+          status={Localization.successfully[lang]}
+          btnTitle={Localization.done[lang]}
+        />
       </View>
     </UpdateProfileLayout>
   );
 };
-
 export default EmpSetLanguage;
-
 const styles = StyleSheet.create({
   container: {
     paddingTop: wp(5),
@@ -93,13 +91,13 @@ const styles = StyleSheet.create({
     width: wp(6),
     height: wp(6),
     marginRight: wp(3),
-    borderRadius: wp(3), 
+    borderRadius: wp(3),
   },
   label: {
     fontSize: FontSize.m,
     color: Color.coal,
     fontFamily: FontFamily.robotoRegular,
-    flex: 1, 
+    flex: 1,
   },
   radioButton: {
     width: wp(5),
@@ -111,12 +109,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   radioButtonSelected: {
-    borderColor: Color.darkBlue, 
+    borderColor: Color.darkBlue,
   },
   innerCircle: {
     width: wp(3),
     height: wp(3),
     borderRadius: wp(1.8),
-    backgroundColor: Color.darkBlue, 
+    backgroundColor: Color.darkBlue,
   },
 });

@@ -9,6 +9,7 @@ import TestCodes from '../screens/TestCodes';
 import CompanyAuthStack from './CompanyAuthStack';
 import EmployeeAuthStack from './EmployeeAuthStack';
 import EmployeeStack from './EmployeeStack';
+import CompStack from './CompStack';
 
 
 
@@ -25,6 +26,7 @@ const RootNavigation = () => {
 <Stack.Screen name='CompanyAuth' component={CompanyAuthStack}/>
 <Stack.Screen name='EmployeeAuth' component={EmployeeAuthStack}/>
 <Stack.Screen name='EmployeeStack' component={EmployeeStack}/>
+<Stack.Screen name='CompStack' component={CompStack}/>
    </Stack.Navigator>
    </NavigationContainer>
    

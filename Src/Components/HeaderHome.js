@@ -4,13 +4,13 @@ import {Color, FontFamily, FontSize} from '../constants/style';
 import {wp} from '../utils/utils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import Localization from '../constants/localization';
 
-const HeaderHome = () => {
+const HeaderHome = ({company}) => {
   const {top} = useSafeAreaInsets();
   const navigation = useNavigation();
-  const {lang} = useSelector(state=>state.language)
+  const {lang} = useSelector(state => state.language);
   return (
     <View style={styles.topContainer}>
       <Image
@@ -25,10 +25,17 @@ const HeaderHome = () => {
         <Text numberOfLines={1} style={styles.txtheader}>
           {Localization.hello[lang]} William Karlsson
         </Text>
-        <TouchableOpacity
-        onPress={() => navigation.navigate('EmpNotify')}
-        >
-          
+        {company ? (
+          <TouchableOpacity
+          // onPress={() => navigation.navigate('EmpNotify')}
+          >
+            <Image
+              source={require('../assets/icons/settingsicon.png')}
+              style={[styles.icon2, {marginRight: wp(3)}]}
+            />
+          </TouchableOpacity>
+        ) : null}
+        <TouchableOpacity onPress={() => navigation.navigate('EmpNotify')}>
           <Image
             source={require('../assets/icons/notifications.png')}
             style={styles.icon2}

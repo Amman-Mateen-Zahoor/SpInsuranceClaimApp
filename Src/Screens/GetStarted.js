@@ -18,7 +18,7 @@ import { useSelector } from 'react-redux';
  
 const GetStarted = ({navigation}) => {
  const {lang} = useSelector((state)=>state.language)
- console.log("lllllanguage",lang)
+ console.log("GetStarted",lang)
   return (
     <View style={styles.container}>
       <Image
