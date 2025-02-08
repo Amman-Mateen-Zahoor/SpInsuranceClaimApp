@@ -14,7 +14,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-const TopHeader = ({heading, subHeading, notify}) => {
+const TopHeader = ({heading, subHeading, notify, from}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   return (
@@ -38,7 +38,12 @@ const TopHeader = ({heading, subHeading, notify}) => {
         </Text>
       </View>
       {!notify ? (
-        <TouchableOpacity     onPress={() => navigation.navigate('EmpNotify')}>
+        <TouchableOpacity
+          onPress={() => {
+            from
+              ? navigation.navigate('EmpNotify')
+              : navigation.navigate('CmpNotify');
+          }}>
           <Image
             source={require('../assets/icons/notifications.png')}
             style={styles.icon2}
@@ -59,7 +64,8 @@ const UpdateProfileLayout = ({
   settingStyle,
   updateProfile,
   notify,
-  styleKeyboard
+  styleKeyboard,
+  from,
 }) => {
   const navigation = useNavigation();
   //  useLayoutEffect(() => {
@@ -79,7 +85,12 @@ const UpdateProfileLayout = ({
         source={require('../assets/images/auth-background.png')}
         style={styles.bgImg}
       />
-      <TopHeader heading={heading} subHeading={subHeading} notify={notify} />
+      <TopHeader
+        heading={heading}
+        subHeading={subHeading}
+        notify={notify}
+        from={from}
+      />
       {title && (
         <Text numberOfLines={1} style={styles.titleStyle}>
           {title}
@@ -119,8 +130,7 @@ const UpdateProfileLayout = ({
           enableOnAndroid
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={[styles.contentContainer, settingStyle]}
-          style={[styleKeyboard]}
-           >
+          style={[styleKeyboard]}>
           {children}
         </KeyboardAwareScrollView>
       </View>

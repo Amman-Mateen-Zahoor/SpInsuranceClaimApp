@@ -22,9 +22,10 @@ import {
   import { useSelector } from 'react-redux';
   import Localization from '../constants/localization';
 import CmpHome from '../screens/company/bottomScreens/CmpHome';
+import CmpDamage from '../screens/company/bottomScreens/CmpDamage';
   
   const Tab = createBottomTabNavigator();
-  const CompBottomTab = () => {
+  const CmpBottomTab = () => {
     const {bottom} = useSafeAreaInsets();
     const [keyboardVisible, setKeyboardVisible] = useState(false);
     const {lang} = useSelector(state=>state.language)
@@ -69,6 +70,7 @@ import CmpHome from '../screens/company/bottomScreens/CmpHome';
         />
         <Tab.Screen
           options={{
+            title:Localization.damage[lang],
             tabBarIcon: tabProps => {
               return (
                 <Image
@@ -82,8 +84,9 @@ import CmpHome from '../screens/company/bottomScreens/CmpHome';
               );
             },
           }}
-          name={Localization.damage[lang]}
-          component={EmpFile}
+          
+          name='CmpDamage'
+          component={CmpDamage}
         />
         <Tab.Screen
           options={{
@@ -144,7 +147,7 @@ import CmpHome from '../screens/company/bottomScreens/CmpHome';
     );
   };
   
-  export default CompBottomTab;
+  export default CmpBottomTab;
   
   const styles = StyleSheet.create({
     icon: {

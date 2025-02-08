@@ -6,8 +6,8 @@ import {useSelector} from 'react-redux';
 import Localization from '../../../constants/localization';
 import {Color, FontFamily, FontSize} from '../../../constants/style';
 import {wp} from '../../../utils/utils';
-import FileReport from '../../../components/FileReport';
-import CompDamageCard from '../../../components/CompDamageCard';
+import CmpDamageCard from '../../../components/CmpDamageCard';
+import {useNavigation} from '@react-navigation/native';
 
 const CmpHome = () => {
   const {lang} = useSelector(state => state.language);
@@ -85,12 +85,16 @@ const CmpHome = () => {
       img: require('../../../assets/images/p2.jpg'),
     },
   ]);
+  const navigation = useNavigation();
   return (
     <CommonLayout home company disablScrollView>
-      <View style={{padding: wp(5)}}>
+      <View style={{padding: wp(5), flex: 1}}>
         <CustomButton
           style={{marginTop: 0}}
           title={Localization.make_claim[lang]}
+          onPress={() => {
+            navigation.navigate('CmpDamage');
+          }}
         />
         {/* main */}
         <View style={styles.rowCard}>
@@ -98,7 +102,9 @@ const CmpHome = () => {
           <View style={styles.rowContent}>
             {/* seprate seprate */}
             <View>
-              <Text numberOfLines={1} style={styles.Toptxt}>{Localization.employees[lang]}</Text>
+              <Text numberOfLines={1} style={[styles.Toptxt]}>
+                {Localization.employees[lang]}
+              </Text>
               <Text style={[styles.Toptxt, styles.nmbrTxt]}>200</Text>
             </View>
             <View style={styles.iconContainer}>
@@ -112,7 +118,7 @@ const CmpHome = () => {
           <View style={styles.rowContent}>
             {/* seprate seprate */}
             <View>
-              <Text style={styles.Toptxt}>
+              <Text style={[styles.Toptxt]}>
                 {Localization.total_claims[lang]}
               </Text>
               <Text style={[styles.Toptxt, styles.nmbrTxt]}>20</Text>
@@ -129,7 +135,7 @@ const CmpHome = () => {
           <Text style={styles.Heading1}>
             {Localization.damage_reports[lang]}
           </Text>
-          <Pressable>
+          <Pressable onPress={() => navigation.navigate('CmpSeeAll')}>
             <Text style={styles.btnTopTxt}>{Localization.see_all[lang]}</Text>
           </Pressable>
         </View>
@@ -137,9 +143,10 @@ const CmpHome = () => {
           data={report}
           //   contentContainerStyle={{paddingBottom:wp(80)}}
           contentContainerStyle={{
-            paddingBottom: wp(report.length > 5 ? 80 : 10),
+            paddingBottom: wp(5),
+            padding: 5,
           }}
-          renderItem={({item}) => <CompDamageCard item={item} />}
+          renderItem={({item}) => <CmpDamageCard item={item} />}
         />
       </View>
     </CommonLayout>
@@ -151,8 +158,9 @@ export default CmpHome;
 const styles = StyleSheet.create({
   Toptxt: {
     fontFamily: FontFamily.robotoRegular,
-    fontSize: FontSize.m,
+    fontSize: FontSize.s,
     color: Color.coal,
+    width: wp(30),
     marginBottom: wp(2),
   },
   nmbrTxt: {
@@ -166,9 +174,9 @@ const styles = StyleSheet.create({
     width: wp(8),
     alignItems: 'center',
     justifyContent: 'center',
-    marginLeft: wp(7),
-    position:'absolute',
-    right:wp(3)
+    marginRight: wp(3),
+    // position:'absolute',
+    // right:wp(3)
   },
   icon: {
     height: wp(6),
@@ -185,14 +193,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     backgroundColor: Color.white,
-    paddingHorizontal: wp(4.5),
+    paddingHorizontal: wp(2),
     paddingVertical: wp(2),
     borderWidth: 1,
     borderColor: Color.white,
     borderRadius: wp(3),
     elevation: 5,
-    height:wp(20),
-    width:wp(43),
+    height: wp(20),
+    width: wp(43),
   },
   container1: {
     flexDirection: 'row',

@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Notify from '../../common/tabScreens/Notify'
+import Language from '../../common/tabScreens/Language'
 
-const EmpNotify = () => {
+const CmpSetLanguage = () => {
   return (
-<Notify from={'employee'}/>
+    <Language/>
   )
 }
 
-export default EmpNotify
+export default CmpSetLanguage
 
 const styles = StyleSheet.create({})

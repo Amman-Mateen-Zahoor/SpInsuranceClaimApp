@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import Localization from '../constants/localization';
 
-const Header = ({heading,search}) => {
+const Header = ({heading,search,searchHeading,company ,setIconWithoutSearch}) => {
     const navigation =useNavigation()
   const {top} = useSafeAreaInsets();
   const {lang}= useSelector(state=>state.language)
@@ -26,17 +26,44 @@ const Header = ({heading,search}) => {
             style={styles.icon}
           />
         </TouchableOpacity>
-        <Text numberOfLines={1} style={[styles.txtheader,search&&styles.noNotify]} >
-        {search ? Localization.notifications[lang] : heading }
+        <Text numberOfLines={1} 
+        style={[
+          styles.txtheader,
+          setIconWithoutSearch ? (!search ? styles.noNotify : null) : (search ? styles.noNotify : null)
+        ]}
+        
+        >
+        {search ? searchHeading : heading }
         </Text>
-      { !search&&(
-        <TouchableOpacity onPress={()=>(navigation.navigate('EmpNotify'))}>
-          <Image
-            source={require('../assets/icons/notifications.png')}
-            style={styles.icon2}
-          />
-          <Text style={styles.badge} />
-        </TouchableOpacity>)}
+      { 
+      (!search || company)&&(
+        <>
+        {company ? (
+                  <TouchableOpacity
+                  onPress={() => navigation.navigate('CmpSetting')}
+                  >
+                    <Image
+                      source={require('../assets/icons/settingsicon.png')}
+                      style={[styles.icon2, {marginRight: wp(3)}]}
+                    />
+                  </TouchableOpacity>
+                ) : null}
+        <TouchableOpacity onPress={()=>
+          {
+            company?navigation.navigate('CmpNotify')
+            :
+            navigation.navigate('EmpNotify')
+          }
+          }>
+            <Image
+              source={require('../assets/icons/notifications.png')}
+              style={styles.icon2}
+            />
+            <Text style={styles.badge} />
+          </TouchableOpacity>
+          </>
+        )
+        }
       </View>
       { search && (
          <View style={styles.searchContainer}>

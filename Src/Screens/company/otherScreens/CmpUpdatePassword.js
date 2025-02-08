@@ -2,12 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import UpdatePassword from '../../common/tabScreens/UpdatePassword'
 
-const EmpUpdatePassword = () => {
+const CmpUpdatePassword = () => {
   return (
-<UpdatePassword from={'employee'}/>  
-)
+<UpdatePassword/>
+  )
 }
 
-export default EmpUpdatePassword
+export default CmpUpdatePassword
 
 const styles = StyleSheet.create({})

@@ -216,8 +216,8 @@ const Localization = {
         en: 'Settings'
     },
     damage_reports: {
-        da: 'Skaderapporter',
-        en: 'Damage reports'
+        da: 'SkadeRapporter',
+        en: 'Damage Reports'
     },
     make_claim: {
         da: 'Anmeld skade',

@@ -27,7 +27,7 @@ const HeaderHome = ({company}) => {
         </Text>
         {company ? (
           <TouchableOpacity
-          // onPress={() => navigation.navigate('EmpNotify')}
+          onPress={() => navigation.navigate('CmpSetting')}
           >
             <Image
               source={require('../assets/icons/settingsicon.png')}
@@ -35,7 +35,9 @@ const HeaderHome = ({company}) => {
             />
           </TouchableOpacity>
         ) : null}
-        <TouchableOpacity onPress={() => navigation.navigate('EmpNotify')}>
+        <TouchableOpacity onPress={() => {
+          company?navigation.navigate('CmpNotify')
+          :navigation.navigate('EmpNotify')}}>
           <Image
             source={require('../assets/icons/notifications.png')}
             style={styles.icon2}

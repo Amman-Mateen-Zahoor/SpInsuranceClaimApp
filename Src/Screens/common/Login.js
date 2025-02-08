@@ -60,7 +60,7 @@ const Login = ({from}) => {
        
        from ==="employee" ?
          navigation.navigate('EmployeeStack')
-         :navigation.navigate('CompStack')
+         :navigation.navigate('CmpStack')
        }} style={{width: wp(90)}} />
       <View style={{flexDirection: 'row',alignSelf:"center"}}>
         <Text

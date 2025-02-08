@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import Notify from '../../common/tabScreens/Notify'
+import ContactUs from '../../common/tabScreens/ContactUs'
 
-const EmpNotify = () => {
+const CmpContactUs = () => {
   return (
-<Notify from={'employee'}/>
+<ContactUs/>
   )
 }
 
-export default EmpNotify
+export default CmpContactUs
 
 const styles = StyleSheet.create({})
