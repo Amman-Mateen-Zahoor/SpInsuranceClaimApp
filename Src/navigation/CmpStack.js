@@ -8,6 +8,8 @@ import CmpSetLanguage from '../screens/company/otherScreens/CmpSetLanguage'
 import CmpUpdatePassword from '../screens/company/otherScreens/CmpUpdatePassword'
 import CmpContactUs from '../screens/company/otherScreens/CmpContactUs'
 import CmpSeeAll from '../screens/company/otherScreens/CmpSeeAll'
+import CmpDamage from '../screens/company/bottomScreens/CmpDamage'
+import CmpDamageClaim from '../screens/company/otherScreens/CmpDamageClaim'
 const Stack = createNativeStackNavigator()
 
 const CmpStack = () => {
@@ -20,6 +22,7 @@ const CmpStack = () => {
 <Stack.Screen name='CmpUpdatePassword' component={CmpUpdatePassword}/>
 <Stack.Screen name='CmpContactUs' component={CmpContactUs}/>
 <Stack.Screen name='CmpSeeAll' component={CmpSeeAll}/>
+<Stack.Screen name='CmpDamageClaim' component={CmpDamageClaim}/>
 </Stack.Navigator>
 )
 }

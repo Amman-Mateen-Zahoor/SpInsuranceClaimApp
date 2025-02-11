@@ -23,6 +23,8 @@ import {
   import Localization from '../constants/localization';
 import CmpHome from '../screens/company/bottomScreens/CmpHome';
 import CmpDamage from '../screens/company/bottomScreens/CmpDamage';
+import CmpEmployees from '../screens/company/bottomScreens/CmpEmployees';
+import CmpProfile from '../screens/company/bottomScreens/CmpProfile';
   
   const Tab = createBottomTabNavigator();
   const CmpBottomTab = () => {
@@ -123,7 +125,7 @@ import CmpDamage from '../screens/company/bottomScreens/CmpDamage';
             },
           }}
           name={Localization.employees[lang]}
-          component={EmpSetting}
+          component={CmpEmployees}
         />
          <Tab.Screen
           options={{
@@ -141,7 +143,7 @@ import CmpDamage from '../screens/company/bottomScreens/CmpDamage';
             },
           }}
           name={Localization.profile[lang]}
-          component={EmpProfile}
+          component={CmpProfile}
         />
       </Tab.Navigator>
     );

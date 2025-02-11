@@ -88,7 +88,8 @@ const CmpHome = () => {
   const navigation = useNavigation();
   return (
     <CommonLayout home company disablScrollView>
-      <View style={{padding: wp(5), flex: 1}}>
+      <View style={{ flex: 1}}>
+        <View style={{padding:wp(5)}}>
         <CustomButton
           style={{marginTop: 0}}
           title={Localization.make_claim[lang]}
@@ -139,12 +140,12 @@ const CmpHome = () => {
             <Text style={styles.btnTopTxt}>{Localization.see_all[lang]}</Text>
           </Pressable>
         </View>
+        </View>
         <FlatList
           data={report}
-          //   contentContainerStyle={{paddingBottom:wp(80)}}
+          style={{padding:wp(5)}}
           contentContainerStyle={{
             paddingBottom: wp(5),
-            padding: 5,
           }}
           renderItem={({item}) => <CmpDamageCard item={item} />}
         />

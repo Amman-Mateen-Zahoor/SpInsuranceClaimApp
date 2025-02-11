@@ -6,15 +6,17 @@ import {
   TouchableOpacity,
   View,
   Keyboard,
+  Pressable,
 } from 'react-native';
-import React, {useLayoutEffect} from 'react';
+import React, {useLayoutEffect, useState} from 'react';
 import {Color, FontFamily, FontSize} from '../constants/style';
 import {hp, wp} from '../utils/utils';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
-const TopHeader = ({heading, subHeading, notify, from}) => {
+const TopHeader = ({heading, subHeading, notify}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   return (
@@ -40,9 +42,7 @@ const TopHeader = ({heading, subHeading, notify, from}) => {
       {!notify ? (
         <TouchableOpacity
           onPress={() => {
-            from
-              ? navigation.navigate('EmpNotify')
-              : navigation.navigate('CmpNotify');
+            navigation.navigate('EmpNotify');
           }}>
           <Image
             source={require('../assets/icons/notifications.png')}
@@ -78,6 +78,40 @@ const UpdateProfileLayout = ({
   //     StatusBar.setBarStyle('light-content');
   //   }, []);
   const {top} = useSafeAreaInsets();
+  const [filePath, setFilePath] = useState('');
+  const [imageData, setImagData] = useState({
+    // uri: 'file:///data/user/0/com.blinkdramaproject/cache/rn_image_picker_lib_temp_9220858f-3991-4c7d-b140-a034d1a1c8d6.jpg',
+    // uri: 'file:///data/user/0/com.spcalim_insuranceapp/cache/rn_image_picker_lib_temp_aa0fd1cb-492e-4c32-9739-ded916c054fc.jpg',
+    uri:'',
+    name: '',
+    type: '',
+  });
+  const getIamgecamera = () => {
+    let optinos = {mediaType: 'photo'};
+    launchCamera(optinos, responce => {
+      setFilePath(responce.assets[0].uri);
+      console.log(filePath);
+      setImagData({
+        uri: responce.assets[0].uri,
+        name: responce.assets[0].fileName,
+        type: responce.assets[0].type,
+      });
+      console.log(imageData);
+    });
+  };
+  const getIamgeGallery = () => {
+    let optinos = {mediaType: 'photo'};
+    launchImageLibrary(optinos, responce => {
+      setFilePath(responce.assets[0].uri);
+
+      setImagData({
+        uri: responce.assets[0].uri,
+        name: responce.assets[0].fileName,
+        type: responce.assets[0].type,
+      });
+      console.log(imageData);
+    });
+  };
   return (
     // <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={[styles.topContainer, style]}>
@@ -112,16 +146,34 @@ const UpdateProfileLayout = ({
         ]}>
         {updateProfile && (
           <View style={styles.imgContainer}>
-            <Image
+            {/* <Image
+            { 
+              imageData.uri == '' ?
               source={require('../assets/images/headerP.jpg')}
+               : source={{uri: imageData.uri}}
+            }
               style={styles.img}
-            />
-            <View style={styles.imgeditcontainer}>
+            /> */}
+            <Image 
+              style={styles.img} 
+              source={imageData.uri ? { uri: imageData.uri } : require('../assets/images/dummy-profile.jpg')}
+/>
+            <Pressable
+              onPress={() => getIamgeGallery()}
+              style={styles.imgeditcontainer}>
               <Image
                 source={require('../assets/icons/edit.png')}
                 style={styles.imgedit}
               />
-            </View>
+            </Pressable>
+            {/* <Pressable
+              onPress={() => getIamgecamera()}
+              style={styles.imgeditcontainer}>
+              <Image
+                source={require('../assets/icons/edit.png')}
+                style={styles.imgedit}
+              />
+            </Pressable> */}
           </View>
         )}
         <KeyboardAwareScrollView
