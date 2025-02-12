@@ -94,8 +94,9 @@ import {
   Text,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {Color, FontFamily, FontSize} from '../constants/style';
+import {Color, FontFamily, FontSize, TextStyles} from '../constants/style';
 import {wp} from '../utils/utils';
+import Localization from '../constants/localization';
 
 const CustomTextInput = ({
   placeholder,
@@ -106,6 +107,10 @@ const CustomTextInput = ({
   style,
   contactUS,
   text2,
+  error,
+  autoCapitalize,
+  handleBlur,
+  keyboardType,
   ...props
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
@@ -128,7 +133,11 @@ const CustomTextInput = ({
             value={value}
             onChangeText={onChangeText}
             secureTextEntry={secureTextEntry && isPasswordVisible}
+            autoCapitalize={autoCapitalize}
+            onBlur={handleBlur}
+            keyboardType={keyboardType}
             {...props}
+
           />
         ) : (
           <Text numberOfLines={1} style={[styles.textInput]}>
@@ -148,6 +157,7 @@ const CustomTextInput = ({
           </TouchableOpacity>
         )}
       </View>
+      {error ? <Text style={TextStyles.error_msg} >{error}</Text> : null}
     </Pressable>
   );
 };
