@@ -145,7 +145,7 @@ const CmpHome = () => {
           data={report}
           style={{padding:wp(5)}}
           contentContainerStyle={{
-            paddingBottom: wp(5),
+            paddingBottom: wp(15),
           }}
           renderItem={({item}) => <CmpDamageCard item={item} />}
         />

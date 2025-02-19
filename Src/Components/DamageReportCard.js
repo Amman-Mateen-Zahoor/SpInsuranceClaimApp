@@ -4,11 +4,13 @@ import { wp } from '../utils/utils';
 import { Color, FontFamily, FontSize } from '../constants/style';
 import { useNavigation } from '@react-navigation/native';
 
-const DamageReportCard = ({item}) => {
+const DamageReportCard = ({item,from}) => {
   const navigation =useNavigation()
   return (
     <Pressable
-      onPress={() => navigation.navigate('EmpQuestionere')}
+      onPress={() => 
+        from?navigation.navigate('EmpQuestionnaire'):navigation.navigate('CmpQuestionnaire')
+      }
       style={styles.content}>
       <Image
         source={require('../assets/images/homecontentbgtop.png')}

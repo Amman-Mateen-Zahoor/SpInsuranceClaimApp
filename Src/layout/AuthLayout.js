@@ -51,7 +51,8 @@ const AuthLayout = ({children, text1, text2, text3, CustomStyle}) => {
           backgroundColor: Color.white,
           borderTopRightRadius: wp(7),
         }}
-        contentContainerStyle={styles.content}>
+        contentContainerStyle={styles.content}
+        >
         {children}
       </KeyboardAwareScrollView>
     </View>

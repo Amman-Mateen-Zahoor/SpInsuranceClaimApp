@@ -7,7 +7,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useSelector } from 'react-redux';
 import Localization from '../constants/localization';
 
-const Header = ({heading,search,searchHeading,company ,setIconWithoutSearch}) => {
+const Header = ({heading,search,searchHeading,company ,setIconWithoutSearch ,companyNotify}) => {
     const navigation =useNavigation()
   const {top} = useSafeAreaInsets();
   const {lang}= useSelector(state=>state.language)
@@ -20,7 +20,7 @@ const Header = ({heading,search,searchHeading,company ,setIconWithoutSearch}) =>
       <View style={[styles.header, {marginTop: wp(4) + top}]}>
         <TouchableOpacity 
         onPress={()=>{navigation.goBack()}}
-        hitSlop={{ top: 30, bottom: 30, left: 30, right: 30 }}>
+        hitSlop={{ top: 35, bottom: 35, left: 35, right: 35 }}>
           <Image
             source={require('../assets/icons/leftarrow.png')}
             style={styles.icon}
@@ -50,7 +50,7 @@ const Header = ({heading,search,searchHeading,company ,setIconWithoutSearch}) =>
                 ) : null}
         <TouchableOpacity onPress={()=>
           {
-            company?navigation.navigate('CmpNotify')
+            companyNotify?navigation.navigate('CmpNotify')
             :
             navigation.navigate('EmpNotify')
           }

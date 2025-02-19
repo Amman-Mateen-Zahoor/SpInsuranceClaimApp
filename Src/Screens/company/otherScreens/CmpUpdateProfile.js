@@ -2,12 +2,13 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Updateprofile from '../../common/tabScreens/UpdateProfile'
 
-const EmpUpdateprofile = () => {
+
+const CmpUpdateProfile = () => {
   return (
-  <Updateprofile from={'empUpdateProfile'}/>
+    <Updateprofile cmpNotify />
   )
 }
 
-export default EmpUpdateprofile
+export default CmpUpdateProfile
 
 const styles = StyleSheet.create({})

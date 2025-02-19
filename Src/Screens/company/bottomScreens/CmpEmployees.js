@@ -78,6 +78,7 @@ const CmpEmployees = () => {
       search
       company
       disablScrollView
+      companyNotify
       >
       <View style={styles.mainContainer}>
         <FlatList
@@ -85,7 +86,7 @@ const CmpEmployees = () => {
           contentContainerStyle={{
             paddingBottom: wp(10),
           }}
-          renderItem={({item}) => <CmpEmployeeCard item={item} />}
+          renderItem={({item}) => <CmpEmployeeCard item={item} from={'empDetails'}/>}
         />
       </View>
     </CommonLayout>

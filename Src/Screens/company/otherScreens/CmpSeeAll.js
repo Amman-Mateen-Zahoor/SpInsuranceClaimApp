@@ -93,6 +93,7 @@ const CmpSeeAll = () => {
       search
       company
       disablScrollView
+      companyNotify
       >
       <View style={styles.mainContainer}>
         <View style={styles.rowMainContainer}>

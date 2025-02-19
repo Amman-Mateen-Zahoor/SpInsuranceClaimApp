@@ -4,7 +4,7 @@ import Setting from '../../common/tabScreens/Setting'
 
 const CmpSetting = () => {
   return (
-<Setting/>
+<Setting cmpNotify/>
 )
 }
 

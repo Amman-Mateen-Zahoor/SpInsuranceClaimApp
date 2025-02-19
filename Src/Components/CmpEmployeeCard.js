@@ -4,11 +4,19 @@ import {wp} from '../utils/utils';
 import {Color, FontFamily, FontSize} from '../constants/style';
 import {useSelector} from 'react-redux';
 import Localization from '../constants/localization';
+import { useNavigation } from '@react-navigation/native';
 
-const CmpEmployeeCard = ({item}) => {
+const CmpEmployeeCard = ({item,from}) => {
+  const navigation = useNavigation()
   const {lang} = useSelector(state => state.language);
   return (
-    <View style={styles.container2}>
+    <Pressable 
+    onPress={()=>{
+      from== 'empDetails' ? 
+      navigation.navigate("CmpEmpDetails")
+      : null 
+    }}
+    style={styles.container2}>
       <Image
         source={require('../assets/images/dbottom.png')}
         style={styles.bottomImg}
@@ -31,7 +39,7 @@ const CmpEmployeeCard = ({item}) => {
           <Text style={styles.toptxtrgt}>{item.claim}</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

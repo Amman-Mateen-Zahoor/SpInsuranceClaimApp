@@ -20,7 +20,7 @@ const EmployeeStack = () => {
 <Stack.Screen name='EmpProfile' component={EmpProfile}/>
 <Stack.Screen  name='EmpUpdateProfile' component={EmpUpdateprofile}/>
 <Stack.Screen name='EmpHome' component={EmpHome}/>
-<Stack.Screen name='EmpQuestionere' component={EmpQuestionnaire}/>
+<Stack.Screen name='EmpQuestionnaire' component={EmpQuestionnaire}/>
 <Stack.Screen name='EmpNextQuestionnare' component={EmpNextQuestionnare}/>
 <Stack.Screen name='EmpNotify' component={EmpNotify}/>
 <Stack.Screen name='EmpUpdatePassword' component={EmpUpdatePassword}/>

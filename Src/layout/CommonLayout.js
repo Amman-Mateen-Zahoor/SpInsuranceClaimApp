@@ -24,7 +24,8 @@ const CommonLayout = ({
   search,
   company,
   searchHeading,
-  setIconWithoutSearch
+  setIconWithoutSearch,
+  companyNotify
 }) => {
   // useLayoutEffect(() => {
   //   if (Platform.OS === 'android') {
@@ -45,6 +46,7 @@ const CommonLayout = ({
           searchHeading={searchHeading}
           company={company}
           setIconWithoutSearch={setIconWithoutSearch}
+          companyNotify={companyNotify}
         />
       )}
       {disablScrollView ? (

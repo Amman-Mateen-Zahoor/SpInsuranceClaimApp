@@ -82,7 +82,7 @@ const EmpHome = () => {
         data={data}
         contentContainerStyle={styles.container}
         // renderItem={DamageReportCard}
-        renderItem={({ item }) => <DamageReportCard item={item} />}
+        renderItem={({ item }) => <DamageReportCard item={item} from={'employee'}/>}
         numColumns={2}
       />
     </CommonLayout>

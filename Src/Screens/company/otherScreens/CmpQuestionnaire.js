@@ -2,12 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Questionnaire from '../../common/tabScreens/Questionaire'
 
-const EmpQuestionnaire = () => {
+const CmpQuestionnaire = () => {
   return (
-    <Questionnaire from={'employee'}/>
-  )
+<Questionnaire companyNotify/> 
+)
 }
 
-export default EmpQuestionnaire
+export default CmpQuestionnaire
 
 const styles = StyleSheet.create({})

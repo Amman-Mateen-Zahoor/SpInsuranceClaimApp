@@ -16,7 +16,7 @@ import {useNavigation} from '@react-navigation/native';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 
-const TopHeader = ({heading, subHeading, notify}) => {
+const TopHeader = ({heading, subHeading, notify,cmpNotify}) => {
   const navigation = useNavigation();
   const {top} = useSafeAreaInsets();
   return (
@@ -42,7 +42,7 @@ const TopHeader = ({heading, subHeading, notify}) => {
       {!notify ? (
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate('EmpNotify');
+            cmpNotify?navigation.navigate('CmpNotify'):navigation.navigate('EmpNotify');
           }}>
           <Image
             source={require('../assets/icons/notifications.png')}
@@ -66,6 +66,7 @@ const UpdateProfileLayout = ({
   notify,
   styleKeyboard,
   from,
+  cmpNotify
 }) => {
   const navigation = useNavigation();
   //  useLayoutEffect(() => {
@@ -77,6 +78,7 @@ const UpdateProfileLayout = ({
   //     StatusBar.setHidden(false);
   //     StatusBar.setBarStyle('light-content');
   //   }, []);
+  console.log("lllfirst",cmpNotify)
   const {top} = useSafeAreaInsets();
   const [filePath, setFilePath] = useState('');
   const [imageData, setImagData] = useState({
@@ -124,6 +126,7 @@ const UpdateProfileLayout = ({
         subHeading={subHeading}
         notify={notify}
         from={from}
+        cmpNotify={cmpNotify}
       />
       {title && (
         <Text numberOfLines={1} style={styles.titleStyle}>

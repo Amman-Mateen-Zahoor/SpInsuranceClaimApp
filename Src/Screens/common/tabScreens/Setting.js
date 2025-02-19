@@ -29,8 +29,8 @@ const Item = ({
     </Pressable>
   );
 };
-const Setting = ({from}) => {
-  console.log("from",from)
+const Setting = ({from,cmpNotify}) => {
+  console.log("fromaaa",cmpNotify)
   const [toggleSwitch, setToggleSwitch] = useState();
   const navigation = useNavigation();
   const [sendVisibleLogout, SetSendVisibleLogout] = useState(false);
@@ -41,7 +41,9 @@ const Setting = ({from}) => {
       heading={Localization.settings[lang]}
       subHeading={Localization.change_language[lang]}
       title={Localization.general_settings[lang]}
-      settingStyle={{paddingVertical: wp(5)}}>
+      settingStyle={{paddingVertical: wp(5)}}
+      cmpNotify={cmpNotify}
+      >
       <Item
         isToggle
         heading1={Localization.face_id[lang]}

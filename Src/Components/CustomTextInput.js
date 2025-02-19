@@ -111,6 +111,7 @@ const CustomTextInput = ({
   autoCapitalize,
   handleBlur,
   keyboardType,
+  onSubmitEditing,
   ...props
 }) => {
   const [isPasswordVisible, setIsPasswordVisible] = useState(true);
@@ -136,6 +137,7 @@ const CustomTextInput = ({
             autoCapitalize={autoCapitalize}
             onBlur={handleBlur}
             keyboardType={keyboardType}
+            onSubmitEditing={onSubmitEditing}
             {...props}
 
           />

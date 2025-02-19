@@ -83,6 +83,7 @@ heading={Localization.damage_types[lang]}
 company
 setIconWithoutSearch
 disablScrollView
+companyNotify
 >
 <FlatList
         data={data}

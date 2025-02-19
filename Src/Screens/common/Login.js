@@ -45,6 +45,7 @@ const Login = ({from}) => {
             autoCapitalize='none'
             handleBlur={handleBlur('email')}        
             keyboardType={'email-address'}
+            // onSubmitEditing={(event) => event.currentTarget.next?.focus()}
             
           />
           <CustomTextInput

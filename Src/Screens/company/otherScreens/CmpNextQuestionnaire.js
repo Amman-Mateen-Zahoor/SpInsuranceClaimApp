@@ -2,12 +2,12 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import NextQuestionnare from '../../common/tabScreens/NextQuestionnaire'
 
-const EmpNextQuestionnare = () => {
+const CmpNextQuestionnaire = () => {
   return (
- <NextQuestionnare from={'employee'}/>
+<NextQuestionnare companyNotify/>
   )
 }
 
-export default EmpNextQuestionnare
+export default CmpNextQuestionnaire
 
 const styles = StyleSheet.create({})
